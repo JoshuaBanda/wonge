@@ -1,0 +1,127 @@
+body {
+  background-color: #eeeeee; /* Light background for the body */
+}
+
+.header {
+  position: fixed; /* Fixed position to stick to the top */
+  top: 0; /* Aligns the header at the top */
+  left: 0; /* Aligns to the left */
+  right: 0; /* Aligns to the right */
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+  z-index: 1000; /* Ensures the header is above other content */
+  padding: 20px; /* Add padding for spacing */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Optional shadow for depth */
+}
+
+.intro {
+  position: relative;
+  left: 10px;
+  right: 10px;
+  top: 15px;
+  font-size: 20px; /* Ensure this matches your overall design */
+  margin-bottom: 20px;
+}
+
+.HeaderDisplay {
+  position: absolute;
+  top: 45px;
+}
+
+.footer {
+  background-color: #444; /* Darker background for the footer */
+  color: #fff;
+  padding: 20px;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 30px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  flex: 1;
+  margin: 10px;
+  min-width: 200px;
+}
+
+.footer-section h4 {
+  border-bottom: 2px solid #fff;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 5px;
+}
+
+.footer-section ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.footer-section ul li a:hover {
+  color: #ffcc00; /* Highlight color on hover */
+  text-decoration: underline;
+}
+
+.footer-section a img {
+  width: 24px;
+  height: 24px;
+  margin: 0 5px;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  border-top: 1px solid #555; /* Slightly lighter border */
+  padding-top: 10px;
+}
+
+.footer-bottom a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-bottom a:hover {
+  text-decoration: underline;
+}
+
+/* Media query for responsive adjustments */
+@media (max-width: 768px) {
+  .footer-section {
+    flex: 1 1 100%; /* Stack sections on small screens */
+  }
+
+  .intro {
+    font-size: 18px; /* Slightly smaller text on smaller screens */
+  }
+}
+
+/* Adding hover effects for header links */
+.header a {
+  color: #333; /* Default link color */
+  text-decoration: none;
+  transition: color 0.3s ease; /* Smooth transition */
+}
+
+.header a:hover {
+  color: #ffcc00; /* Change color on hover */
+}
+
+/* Smooth scrolling for links */
+html {
+  scroll-behavior: smooth; /* Enable smooth scrolling */
+}
