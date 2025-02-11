@@ -232,7 +232,7 @@ const LoginPage = () => {
                 zIndex: 1, // Make sure it's on top of the other content
               }}
             >
-              Don't have an account?{" "}
+              Don't have an account?
               <Link
                 href="/userAunthentication/SignUpPage" // Link to sign-up page, update the path as necessary
                 style={{
