@@ -127,3 +127,69 @@
     filter: invert(1);
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+.home-page-content {
+  padding: 20px;
+  color: black;
+}
+
+.home-page-content h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.home-page-content p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+
+
+
+/* components/DownloadButton.module.css */
+.container {
+  text-align: center;
+  margin: 20px;
+}
+
+.button {
+  display: inline-block;
+  background-color: red;
+  color: white;
+  padding: 14px 20px;
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0a0a0abd;
+  color: yello;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

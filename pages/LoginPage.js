@@ -3,16 +3,42 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaSeedling } from "react-icons/fa";
 import { motion } from 'framer-motion';
+import axios from "axios";
+import { useRouter } from "next/router";
 
 const LoginPage = () => {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission (e.g., make API call to authenticate the user)
+
+    // Log the email and password (for debugging purposes)
     console.log("Email:", email);
     console.log("Password:", password);
+
+    try {
+      // Make the POST request with email and password
+      const response = await axios.post("https://wonge-backend.onrender.com/users/logi-n", {
+        email,
+        password,
+      });
+
+      
+      console.log(response.status);
+
+      // Handle the response (e.g., check if authentication is successful)
+      if (response.status === 201) {
+        console.log("Authentication successful:", response.data);
+        // You can store the token or handle the successful login response here
+        router.push('/Home');
+      }
+    } catch (error) {
+      console.error("Error submitting the form:", error);
+      // Handle errors (e.g., show an error message to the user)
+    }
   };
 
   return (
@@ -174,6 +200,7 @@ const LoginPage = () => {
         transition={{
             type: 'spring', stiffness: 255, duration: 150, repeat: Infinity, repeatType: 'reverse',
         }}
+
       >
         Login
 

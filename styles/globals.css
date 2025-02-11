@@ -20,7 +20,54 @@ a {
     color-scheme: dark;
   }
   body {
-    color: black;
+    color: white;
     background: white;
   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer {
+  background-color: #eeeeee;
+  color: #1d1c1c;
+  padding: 0px;
+  position: fixed;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 50px;
+  z-index: 20;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 2px;
+  border-top: 1px solid #8f8c8c;
+  padding-top: 10px;
+}
+
+.footer-bottom a {
+  color: #313131;
+  text-decoration: none;
 }
