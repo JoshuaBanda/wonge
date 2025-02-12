@@ -11,6 +11,11 @@ const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const [loading,setLoading]=useState(false);
+
+  const handleLoading=()=>{
+    setLoading(!loading);
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,7 +23,7 @@ const LoginPage = () => {
     // Log the email and password (for debugging purposes)
     console.log("Email:", email);
     console.log("Password:", password);
-
+    handleLoading();
     try {
       // Make the POST request with email and password
       const response = await axios.post("https://wonge-backend.onrender.com/users/logi-n", {
@@ -27,13 +32,16 @@ const LoginPage = () => {
       });
 
       
+      handleLoading();
+
+      
       console.log(response.status);
 
       // Handle the response (e.g., check if authentication is successful)
       if (response.status === 201) {
         console.log("Authentication successful:", response.data);
         // You can store the token or handle the successful login response here
-        router.push('/Home');
+        router.push('/HomePage');
       }
     } catch (error) {
       console.error("Error submitting the form:", error);
@@ -113,18 +121,7 @@ const LoginPage = () => {
             <div>
                 
             <FaSeedling size={60} color="rgb(245, 244, 241)"/>
-            </div>
-            <p
-              style={{
-                color: "white",
-                fontSize: "30px",
-                margin:'5px auto',
-                position: "relative", // Ensure text is clear and not blurred
-                zIndex: 1, // Text stays on top of the container
-              }}
-            >
-              Login
-            </p>
+            </div>  
 
             {/* Login Form */}
             <form
@@ -202,7 +199,36 @@ const LoginPage = () => {
         }}
 
       >
-        Login
+      {
+        loading?(
+          
+          <p
+              style={{
+                color: "white",
+                fontSize: "15px",
+                margin:'5px auto',
+                position: "relative", // Ensure text is clear and not blurred
+                zIndex: 1, // Text stays on top of the container
+              }}
+            >
+              Loading ...
+            </p>
+        ):
+        (
+          
+          <p
+              style={{
+                color: "white",
+                fontSize: "20px",
+                margin:'5px auto',
+                position: "relative", // Ensure text is clear and not blurred
+                zIndex: 1, // Text stays on top of the container
+              }}
+            >
+              Login
+            </p>
+        )
+      }
 
         <style jsx>{`
           @keyframes borderAnimation {

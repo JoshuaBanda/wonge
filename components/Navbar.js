@@ -3,10 +3,6 @@ import Link from 'next/link';
 import { FaBars, FaHome } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSeedling } from '@fortawesome/free-solid-svg-icons';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import Policy from '../pages/Policy';
 
 // Animation variants for the sidebar links
 const linkVariants = {
@@ -58,10 +54,10 @@ function AnimatedWord({ iconsize, fsize }) {
           style={{
             color: 'rgba(60, 60, 60, 1)',
             display: 'inline-block',
-            cursor: 'pointer',
+            cursor: "auto",
             textShadow: '0 -3px 2px rgba(0,0,0,0.3)',
-            fontFamily: 'Roman, serif',
-            fontSize: fsize,
+            fontFamily:"monospace",
+            fontSize: "20px",
           }}
           whileHover={{ scale: 1.2, color: 'coral' }}
         >
@@ -207,7 +203,7 @@ const navbarStyles = {
   height: '60px',
   backgroundColor: '#fff',
   zIndex: 1000,
-  boxShadow: '10px 2px 10px rgba(0, 0, 0, 0.05)',
+  boxShadow: '10px 2px 10px rgba(0, 0, 0, 0.01)',
 };
 
 const headingContainerStyles = {

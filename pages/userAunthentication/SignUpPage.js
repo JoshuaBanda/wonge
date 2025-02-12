@@ -75,7 +75,7 @@ const SignUpPage = () => {
               maxWidth: "500px", // Optional max-width
               margin: "auto",
               border: "1px solid white",
-              backgroundColor: "rgba(255, 255, 255, 0.6)", // Light white overlay
+              backgroundColor: "rgba(0,0,0, 0.6)", // Light white overlay
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",

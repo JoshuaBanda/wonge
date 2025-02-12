@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }) {
 
 
   // Check if the user is on the landing page, so we don't show the navbar there
-  const isLandingPage = router.pathname === '/';
+  const isLandingPage = router.pathname === '/LandingPage'||'/LogingPage';
 
   return (
     <>

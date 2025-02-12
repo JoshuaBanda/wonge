@@ -1,8 +1,17 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link'; // Import Next.js Link
+import { useRouter } from 'next/router';
 
 const LandingPage = () => {
+    
+      const router = useRouter();
+
+
+    const handleRouter=()=>{
+        router.push('/LoginPage')
+        console.log('routingg');
+    }
     return (
         <>
             {/* Overlay for black color with opacity */}
@@ -31,8 +40,7 @@ const LandingPage = () => {
             </div>
 
             {/* Link with adjusted styling */}
-            <Link
-                href="/" // Path to navigate to
+            <div
                 style={{
                     position: 'absolute',
                     top: '90%', // Adjust the position to be below the welcome text
@@ -54,6 +62,7 @@ const LandingPage = () => {
             >
 
       <motion.div
+       onClick={handleRouter}
         style={{
           left: '50%',
           transform: 'translateX(-50%)', // Center the link horizontally
@@ -78,7 +87,9 @@ const LandingPage = () => {
         animate={{ opacity: 1, }}
         transition={{ delay: 2 }}
       >
+      <div>
         Continue
+      </div>
 
         <style jsx>{`
           @keyframes borderAnimation {
@@ -96,7 +107,7 @@ const LandingPage = () => {
         `}</style>
       </motion.div>
 
-            </Link>
+            </div>
 
             {/* Main container with flex layout */}
             <div style={{ display: 'flex' }}
