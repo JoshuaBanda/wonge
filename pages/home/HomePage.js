@@ -3,17 +3,23 @@ import Carousel from "./Carousel";
 import HomeOptions from "../Desings/HomeOptions";
 import { motion } from 'framer-motion';
 import ItemList from "../Desings/ItemList";
+import axios from "axios";
+import ShopItems from "./ShopItems";
 
 const HomePage = () => {
-  const items = ["Avon Lotion", "Earrings", "Brochus",];
-
+  const items = ["Avon", "Earrings", "Brochus",];
+  
   // State to keep track of selected item
   const [selectedItem, setSelectedItem] = useState(null);
-
+  const [search,setSearch]=useState("Avon");
   // Handle when an item is clicked
   const handleOnClick = (item) => {
     // Set the selected item and change its background color to black
     setSelectedItem(item);
+
+    console.log(item ,"selected");
+
+    setSearch(item);
   };
 
   return (
@@ -89,7 +95,18 @@ const HomePage = () => {
         </div>
 
         <Carousel />
-        <ItemList/>
+
+        <div style={{
+          position:"relative",
+          display:"flex",
+          alignItems:"center",
+        }}>
+          What are you looking for?
+        </div>
+
+        <div>
+          <ShopItems searchItem={selectedItem}/>
+        </div>
       </div>
     </>
   );

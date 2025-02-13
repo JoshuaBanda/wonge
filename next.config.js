@@ -4,4 +4,13 @@ const nextConfig = {
   //swcMinify: true,
 }
 
-module.exports = nextConfig
+//module.exports = nextConfig
+
+/** @type {import('next').NextConfig} */
+module.exports = {
+  reactStrictMode: true,
+  images: {
+    domains: ['res.cloudinary.com'],  // Allow Cloudinary images
+  },
+};
+
