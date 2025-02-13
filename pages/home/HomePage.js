@@ -95,14 +95,18 @@ const HomePage = () => {
         </div>
 
         <Carousel />
-
         <div style={{
-          position:"relative",
-          display:"flex",
-          alignItems:"center",
-        }}>
-          What are you looking for?
-        </div>
+  position: "relative",
+  display: "flex",
+  alignItems: "center",       // Vertically centers the content
+  justifyContent: "center",   // Horizontally centers the content
+  height: "40px",             // Ensures the content is centered in the viewport
+  fontFamily:"monospace",
+  fontSize:"18px"
+}}>
+  What are you looking for?
+</div>
+
         <ItemList/>
 
         <div>

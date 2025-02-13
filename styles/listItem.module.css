@@ -25,7 +25,7 @@
 }
 
 .item {
-    border: 1px solid rgba(80, 80, 80, 0.61);
+    border: 1px solid rgba(80, 80, 80, 0);
     width: auto; /* Set width for item */
     text-align: center; /* Center the text inside the item */
     border-radius: 10px;
@@ -34,7 +34,7 @@
 .photoContainer {
     position: relative;
     height: 100px;
-    width: 120px;
+    width: 130px;
     border: 1px solid bisque;
     padding: 0px;
     border-top-left-radius: 8px;
@@ -48,6 +48,7 @@
     color: rgb(90, 89, 88);
     margin-left: 10px;
     font-size: 14px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 
