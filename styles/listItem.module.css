@@ -1,0 +1,54 @@
+/* styles/listItem.module.css */
+.container {
+    position: relative;
+    margin: 10px 10px;
+}
+
+.listItems li {
+    position: relative;
+    list-style: none;
+    float: left; /* Floats items to the left */
+    margin-right: 10px; /* Adds space between items */
+    margin-bottom: 10px;
+}
+
+.listItems li:hover{
+    position: relative;
+    top:-5px;
+}
+
+/* Clearfix for the floated items in the container */
+.container::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.item {
+    border: 1px solid rgba(80, 80, 80, 0.61);
+    width: auto; /* Set width for item */
+    text-align: center; /* Center the text inside the item */
+    border-radius: 10px;
+}
+
+.photoContainer {
+    position: relative;
+    height: 150px;
+    width: 150px;
+    border: 1px solid bisque;
+    padding: 0px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 10px; /* Adds space between image and text */
+}
+
+.container p {
+    position: relative;
+    color: rgb(90, 89, 88);
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+
+

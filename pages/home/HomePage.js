@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Carousel from "./Carousel";
-import HomeOptions from "./Desings/HomeOptions";
+import HomeOptions from "../Desings/HomeOptions";
 import { motion } from 'framer-motion';
+import ItemList from "../Desings/ItemList";
 
 const HomePage = () => {
   const items = ["Avon Lotion", "Earrings", "Brochus",];
@@ -88,6 +89,7 @@ const HomePage = () => {
         </div>
 
         <Carousel />
+        <ItemList/>
       </div>
     </>
   );

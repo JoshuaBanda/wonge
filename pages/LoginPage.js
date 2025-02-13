@@ -41,7 +41,7 @@ const LoginPage = () => {
       if (response.status === 201) {
         console.log("Authentication successful:", response.data);
         // You can store the token or handle the successful login response here
-        router.push('/HomePage');
+        router.push('/home/HomePage');
       }
     } catch (error) {
       console.error("Error submitting the form:", error);

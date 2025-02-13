@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }) {
       <Component {...pageProps} />
 
       {/* Render Footer only if not on the landing page */}
-      {!isLandingPage && <Footer />}
+      {/*!isLandingPage && <Footer />*/}
     </>
   );
 }

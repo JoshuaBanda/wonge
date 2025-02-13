@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import styles from "../styles/Carousel.module.css"; // Import the custom CSS file
+import styles from "../../styles/Carousel.module.css"; // Import the custom CSS file
 
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
