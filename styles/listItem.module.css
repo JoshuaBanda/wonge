@@ -1,7 +1,7 @@
 /* styles/listItem.module.css */
 .container {
     position: relative;
-    margin: 10px 10px;
+    margin: 10px 0px;
 }
 
 .listItems li {
@@ -34,7 +34,7 @@
 .photoContainer {
     position: relative;
     height: 150px;
-    width: 150px;
+    width: 120px;
     border: 1px solid bisque;
     padding: 0px;
     border-top-left-radius: 8px;
