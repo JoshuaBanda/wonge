@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios"; // Import axios
 import Image from "next/image";
-
+import styles from '../../styles/shopItems.module.css'
 const ShopItems = ({ searchItem }) => {
     console.log('search item2', searchItem); // Check the searchItem prop
 
@@ -39,15 +39,16 @@ const ShopItems = ({ searchItem }) => {
 
     // Map over the items to create the list of items
     const homeItems = Array.isArray(items) && items.map((item) => (
-        <div key={item.id} style={{ border: "1px solid #ccc", margin: "10px", padding: "10px" }}>
+        <div key={item.id} style={{ }} className={styles.container}>
             {/* Check if photo_url exists and display the image */}
             {item.photo_url ? (
                 <Image
                     src={item.photo_url} // Use the photo_url from the API
                     alt={item.name}
-                    width={150} // Adjust width as needed
+                    width={250} // Adjust width as needed
                     height={150} // Adjust height as needed
                     style={{ borderRadius: "8px", marginBottom: "10px" }}
+                    className={styles.pic}
                 />
             ) : (
                 <p>No image available</p>
