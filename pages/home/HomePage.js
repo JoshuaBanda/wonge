@@ -103,6 +103,7 @@ const HomePage = () => {
         }}>
           What are you looking for?
         </div>
+        <ItemList/>
 
         <div>
           <ShopItems searchItem={selectedItem}/>
