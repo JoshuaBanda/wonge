@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
-import styles from '../styles/Inventory.module.css';
+import styles from '../styles/inventory.module.css';
 
 export default function InventoryForm() {
   const { register, handleSubmit, reset } = useForm();
