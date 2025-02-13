@@ -1,6 +1,6 @@
 .container {
     position: relative;
-    border:1px solid red;
+    border:1px solid #ccc;
     border-radius: 10px;
     margin:50px 10%;
     width: 250px;
@@ -12,8 +12,27 @@
     object-fit: cover;
     
 }
-.txt{
+.txt h3{
     position: relative;
+    display: flex;
+    justify-content: center;
     align-items: center;
     color: #636161;
+}
+
+
+.txt p{
+    position: relative;
+    display: flex;
+    color: #636161;
+    margin: 5px;
+}
+.motivationcaute {
+    position: relative;
+    display: flex;
+    justify-content: center;  /* Center horizontally */
+    align-items: center;      /* Center vertically */
+    text-align: center;       /* Ensure the text is centered within the span */
+    color: #4e4e4e;
+    padding: 10px;            /* Add some padding if needed */
 }

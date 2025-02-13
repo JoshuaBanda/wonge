@@ -62,7 +62,13 @@ const ShopItems = ({ searchItem }) => {
     ));
 
     return (
-        <div style={{ position: "relative", marginTop: "100px" }}>
+        
+        <div style={{ position: "relative", marginTop: "50px" }}>
+            <div>
+                <span className={styles.motivationcaute}>
+                At Wonge Enterprise, we’ve got exactly what you’re looking for! Searching for {searchItem} products? We’ve got you covered—find the perfect fit for you today.
+                </span>
+            </div>
             {/* Render the list of homeItems */}
             {homeItems.length > 0 ? homeItems : <p>No items found.</p>}
         </div>
