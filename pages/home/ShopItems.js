@@ -53,9 +53,11 @@ const ShopItems = ({ searchItem }) => {
             ) : (
                 <p>No image available</p>
             )}
-            <h3>{item.name}</h3>
-            <p>Price: ${item.price}</p>
-            <p>Description: {item.description}</p>
+            <div className={styles.txt}>
+                <h3>{item.name}</h3>
+                <p>Price: ${item.price}</p>
+                <p>Description: {item.description}</p>
+            </div>
         </div>
     ));
 

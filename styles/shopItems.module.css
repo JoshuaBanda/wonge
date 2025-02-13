@@ -12,3 +12,8 @@
     object-fit: cover;
     
 }
+.txt{
+    position: relative;
+    align-items: center;
+    color: #636161;
+}
