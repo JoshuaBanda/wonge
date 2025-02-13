@@ -93,8 +93,8 @@ const LoginPage = () => {
               position: "relative",
               height: "450px",
               width: "90%", // Ensure container width is proportionate
-              maxWidth: "650px", // Optional max-width
-              margin: "100px",
+              maxWidth: "850px", // Optional max-width
+              margin: "10px",
               border: "1px solid rgba(255,255,255,0.6)",
               backgroundColor: "rgba(0,0,0, 0.6)", // Light white overlay
               display: "flex",
