@@ -92,10 +92,10 @@ const LoginPage = () => {
             style={{
               position: "relative",
               height: "450px",
-              width: "75%", // Ensure container width is proportionate
-              maxWidth: "500px", // Optional max-width
-              margin: "auto",
-              border: "1px solid white",
+              width: "90%", // Ensure container width is proportionate
+              maxWidth: "650px", // Optional max-width
+              margin: "100px",
+              border: "1px solid rgba(255,255,255,0.6)",
               backgroundColor: "rgba(0,0,0, 0.6)", // Light white overlay
               display: "flex",
               flexDirection: "column",
@@ -143,8 +143,8 @@ const LoginPage = () => {
                 required
                 style={{
                   padding: "10px",
-                  width: "80%", // Make the input fields full-width
-                  maxWidth: "400px", // Optional: max width for the inputs
+                  width: "95%", // Make the input fields full-width
+                  maxWidth: "500px", // Optional: max width for the inputs
                   marginBottom: "10px",
                   border: "1px solid #ddd",
                   borderRadius: "50px",
@@ -161,8 +161,8 @@ const LoginPage = () => {
                 required
                 style={{
                   padding: "10px",
-                  width: "80%", // Make the input fields full-width
-                  maxWidth: "400px", // Optional: max width for the inputs
+                  width: "95%", // Make the input fields full-width
+                  maxWidth: "500px", // Optional: max width for the inputs
                   marginBottom: "20px",
                   border: "1px solid #ddd",
                   borderRadius: "50px",
