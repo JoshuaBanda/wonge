@@ -136,7 +136,7 @@ function Navbar() {
       <div style={{
         position:"relative",
         top:"10px",
-        right:"-100px",
+        left:"80px",
         marginRight:"0px"
       }}>
         {/*seach icon*/}
