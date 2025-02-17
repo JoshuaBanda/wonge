@@ -5,7 +5,7 @@ function Footer() {
     <footer className="footer">
       <div className="footer-bottom">
         <div style={{ fontFamily: "Allura, cursive",padding:"0px 0px 20px 10px",color:"#1d1c1c" }}>
-        &copy; 2024 <a href="https://wa.me/265885249030">Unimadatinghub.com</a>
+        &copy; 2024 <a href="https://wa.me/265885249030">Wonge-Enetrprise.com</a>
         </div>
       </div>
     </footer>

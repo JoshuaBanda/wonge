@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios"; // Import axios
 import Image from "next/image";
 import styles from '../../styles/shopItems.module.css'
+import Spinner from "../oldVersion/Spinning";
 const ShopItems = ({ searchItem }) => {
     console.log('search item2', searchItem); // Check the searchItem prop
 
@@ -70,7 +71,7 @@ const ShopItems = ({ searchItem }) => {
                 </span>
             </div>
             {/* Render the list of homeItems */}
-            {homeItems.length > 0 ? homeItems : <p>No items found.</p>}
+            {homeItems.length > 0 ? homeItems : <p><Spinner/></p>}
         </div>
     );
 };

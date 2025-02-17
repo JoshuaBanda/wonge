@@ -1,9 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Image from 'next/image';
-import Spinner from "./Spinning";
 
-const Jewelry = () => {
+const Jewerly = () => {
     const [shopItems, setShopItems] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -12,7 +11,9 @@ const Jewelry = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('https://wongebackend.onrender.com/shops');
+                const response = await axios.get('https://wonge-backend.onrender.com/inventory');
+                console.log(response);
+                // Filter shop items where type is "Jewerly"
                 const filteredItems = response.data.filter(item => item.type === "Jewelry");
                 setShopItems(filteredItems);
             } catch (error) {
@@ -25,17 +26,14 @@ const Jewelry = () => {
         fetchData();
     }, []);
 
-    if (loading) return (
-        <div style={{position:"inherit",margin:"150px auto"}}><Spinner/></div>
-    );
-    if (error) return <p style={{ color: "red" }}>{error}</p>;
-    if (shopItems.length === 0) return <p>No jewelry items available.</p>;
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>{error}</p>;
 
     const containerStyle = {
-        padding: "8px",
+        padding: "10px",
         borderRadius: "8px",
         backgroundColor: "#f2f2f2",
-        marginTop: "50px"
+        marginTop: "40px"
     };
 
     const itemStyle = {
@@ -55,23 +53,13 @@ const Jewelry = () => {
         borderRadius: '8px',
         objectFit: 'cover',
         display: 'block',
-        margin: '0',
         height: '200px',
         width: '100%',
-        maxHeight: '200px',
-    };
-
-    const detailsStyle = {
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        height: '150px',
-        padding: '10px',
     };
 
     const titleStyle = {
         color: "#5D3F2E",
-        margin: "2px 0",
+        margin: "5px 0",
         textAlign: "center",
         fontSize: "1.5em",
     };
@@ -85,30 +73,23 @@ const Jewelry = () => {
 
     const descriptionStyle = {
         color: "#5D3F2E",
-        margin: "1px 0",
+        margin: "5px 0",
         textAlign: "center",
         fontStyle: "italic",
-        fontSize: "18px",
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
-        whiteSpace: 'nowrap',
+        fontSize: "16px",
     };
 
     const whatsappContainerStyle = {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        marginTop: "5px",
-    };
-
-    const whatsappStyle = {
-        marginLeft: "3px",
+        marginTop: "10px",
     };
 
     const backToTopStyle = {
         display: 'block',
         textAlign: 'center',
-        margin: '15px 0',
+        margin: '20px 0',
         fontSize: '18px',
         color: '#fff',
         textDecoration: 'none',
@@ -139,13 +120,13 @@ const Jewelry = () => {
                             e.currentTarget.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.1)";
                         }}
                     >
-                        {item.url ? (
+                        {item.photos && item.photos.length > 0 ? (
                             <Image
-                                src={item.url}
+                                src={item.photos[0].url} // Accessing the first photo's URL
                                 alt={item.name}
                                 width={350}
                                 height={200}
-                                priority // Add this if the image is above the fold
+                                layout='responsive'
                                 style={imageStyle}
                             />
                         ) : (
@@ -153,11 +134,9 @@ const Jewelry = () => {
                                 No Image Available
                             </div>
                         )}
-                        <div style={detailsStyle}>
-                            <h3 style={titleStyle}>{item.name}</h3>
-                            <p style={priceStyle}>MK{item.price.toFixed(2)}</p>
-                            <p style={descriptionStyle}>{item.description}</p>
-                        </div>
+                        <h3 style={titleStyle}>{item.name}</h3>
+                        <p style={priceStyle}>MK{item.price.toFixed(2)}</p>
+                        <p style={descriptionStyle}>{item.description}</p>
                         <div style={whatsappContainerStyle}>
                             <a href={`https://wa.me/265886198551?text=${item.whatsappMessage}`} title='WhatsApp'>
                                 <Image
@@ -165,7 +144,6 @@ const Jewelry = () => {
                                     alt='WhatsApp'
                                     width={40}
                                     height={40}
-                                    style={whatsappStyle}
                                 />
                             </a>
                         </div>
@@ -184,4 +162,4 @@ const Jewelry = () => {
     );
 }
 
-export default Jewelry;
+export default Jewerly;

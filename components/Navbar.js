@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
-import { FaBars, FaHome } from 'react-icons/fa';
+import { FaBars, FaHome, FaSearch } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 
@@ -74,6 +74,9 @@ function Navbar() {
   const [headerAnimationKey, setHeaderAnimationKey] = useState(0); 
   const [sidebarAnimationKey, setSidebarAnimationKey] = useState(0); 
 
+
+  const [isSearching,setIsSearching]=useState(false);
+
   const toggleSidebar = useCallback(() => {
     setIsOpen((prev) => {
       if (!prev) setSidebarAnimationKey((prevKey) => prevKey + 1);
@@ -130,6 +133,17 @@ function Navbar() {
           <AnimatedWord iconsize={`20px`} fsize={`22px`} key={headerAnimationKey} />
         </motion.div>
       </div>
+      <div style={{
+        position:"relative",
+        top:"10px",
+        right:"-100px",
+        marginRight:"0px"
+      }}>
+        {/*seach icon*/}
+        <Link href='/Searching'>
+          <FaSearch/>
+        </Link>
+      </div>
 
       <div style={iconContainerStyles}>
 
@@ -162,7 +176,7 @@ function Navbar() {
             {/* Sidebar Links */}
             <motion.div variants={linkVariants} custom={0} style={{ marginTop: '20px' }}>
               <Link
-                href="/HomeComing"
+                href="/home/HomePage"
                 style={{ ...sidebarLinkStyles, display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}
                 onClick={() => {
                   handleHomeClick();
@@ -174,7 +188,31 @@ function Navbar() {
               </Link>
             </motion.div>
 
+
+            
+            <motion.div variants={linkVariants} custom={2}>
+              <Link
+                href="/Jewelry"
+                style={{ ...sidebarLinkStyles, display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}
+                onClick={closeSidebar}
+              >
+                Jewelry
+              </Link>
+            </motion.div>
+
+
             <motion.div variants={linkVariants} custom={3}>
+              <Link
+                href="/Avon"
+                style={{ ...sidebarLinkStyles, display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}
+                onClick={closeSidebar}
+              >
+                Lotion
+              </Link>
+            </motion.div>
+
+
+            <motion.div variants={linkVariants} custom={4}>
               <Link
                 href="/Policy"
                 style={{ ...sidebarLinkStyles, display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}
