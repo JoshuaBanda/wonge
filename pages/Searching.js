@@ -16,7 +16,7 @@ const Earching = () => {
 
         <div style={{
             position:"relative",
-            margin:"90px 60px 10px 10px",
+            margin:"80px 60px 10px 10px",
             display:"flex",
             border:"1px solid black",
             width:"330px",

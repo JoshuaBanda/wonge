@@ -114,7 +114,7 @@ const ShopItems = ({ searchItem, jwtToken='1', post='2', currentUserId='1', apiS
       
       <div style={{
         position: "relative",
-        margin: "80px 10px 100px 10px",
+        margin: "0px 10px 100px 10px",
         display: "flex",
         overflowX: "auto", // Allows horizontal scrolling
         flexWrap: "nowrap", // Prevents wrapping

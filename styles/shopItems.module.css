@@ -49,6 +49,7 @@
     text-align: center;       /* Ensure the text is centered within the span */
     color: #4e4e4e;
     padding: 10px;            /* Add some padding if needed */
+    height: 50px;
 }
 .likeButton{
     position: absolute;
