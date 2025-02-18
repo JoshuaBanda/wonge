@@ -1,38 +1,46 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios'; // You can use axios or fetch for API requests
+import axios from 'axios'; // You can use axios or fetch for https://wonge-backend.onrender.com requests
 import { ClipLoader } from 'react-spinners'; // For a loading spinner
+import Rating from './Rating';
+import { FaHeart } from 'react-icons/fa6';
 
 const LikeButton = ({ postId, userId, jwtToken, initialLikeCount, initialLikeStatus }) => {
   const [isLiked, setIsLiked] = useState(initialLikeStatus);
   const [likeCount, setLikeCount] = useState(initialLikeCount);
   const [isLoading, setIsLoading] = useState(false);
 
+ // console.log('postId',postId,'userid ',userId,' jwtToken',jwtToken,'initial like count',initialLikeCount,'inititual like status',initialLikeStatus);
+
   // Fetch like data when the component mounts
   useEffect(() => {
     fetchLikeData();
-  }, []);
+  }, [postId,isLiked]);
 
   // Fetch like count and like status
   const fetchLikeData = async () => {
     setIsLoading(true);
     try {
       // Fetch like count
-      const likeCountResponse = await axios.get(`/api/post-likes/${postId}`, {
+      const likeCountResponse = await axios.get(`https://wonge-backend.onrender.com/post-likes/${postId}`, {
         headers: {
           Authorization: `Bearer ${jwtToken}`,
         },
       });
 
       const fetchedLikeCount = likeCountResponse.data.length;
+      console.log('like count:',fetchedLikeCount);
 
       // Fetch like status for the current user
-      const likeStatusResponse = await axios.get(`/api/post-likes/has-liked/${postId}/${userId}`, {
+      const likeStatusResponse = await axios.get(`https://wonge-backend.onrender.com/post-likes/has-liked/${postId}/${userId}`, {
         headers: {
           Authorization: `Bearer ${jwtToken}`,
         },
       });
 
+
       setLikeCount(fetchedLikeCount);
+
+      console.log('like status response',likeStatusResponse.data,'like count:',likeCount);
       setIsLiked(likeStatusResponse.data);
     } catch (error) {
       console.error("Error fetching like data:", error);
@@ -50,12 +58,14 @@ const LikeButton = ({ postId, userId, jwtToken, initialLikeCount, initialLikeSta
     try {
       if (isLiked) {
         // Unlike the post
-        const response = await axios.delete(`/api/post-likes/${postId}/${userId}`, {
+        const response = await axios.delete(`https://wonge-backend.onrender.com/post-likes/${postId}/${userId}`, {
           headers: {
             Authorization: `Bearer ${jwtToken}`,
           },
         });
-        if (response.status === 200) {
+        
+        console.log('unlike response',response.status);
+        if (response.status === 200||2001) {
           setIsLiked(false);
           setLikeCount(likeCount - 1);
         } else {
@@ -63,7 +73,7 @@ const LikeButton = ({ postId, userId, jwtToken, initialLikeCount, initialLikeSta
         }
       } else {
         // Like the post
-        const response = await axios.post(`/api/post-likes/like`, {
+        const response = await axios.post(`https://wonge-backend.onrender.com/post-likes/like`, {
           postId,
           userId,
         }, {
@@ -71,7 +81,8 @@ const LikeButton = ({ postId, userId, jwtToken, initialLikeCount, initialLikeSta
             Authorization: `Bearer ${jwtToken}`,
           },
         });
-        if (response.status === 200) {
+        console.log('like response',response.status);
+        if (response.status === 201) {
           setIsLiked(true);
           setLikeCount(likeCount + 1);
         } else {
@@ -88,17 +99,21 @@ const LikeButton = ({ postId, userId, jwtToken, initialLikeCount, initialLikeSta
 
   // Show error message to the user
   const showErrorSnackbar = (message) => {
-    alert(message); // You can replace this with a Snackbar component
+    //  (message); // You can replace this with a Snackbar component
+   // console.log(message);
   };
 
   return (
     <div style={{ display: 'flex', alignItems: 'center' }}>
-      {likeCount > 0 && (
-        <span style={{ fontWeight: 'bold', color: '#555' }}>
-          {likeCount}
+      {likeCount >= 0 && (
+        <span style={{ position:'absolute',
+          top:"190px",
+          right:'70px'
+         }}>
+          <Rating likeCount={likeCount}/>
         </span>
       )}
-      <div style={{ position: 'relative', marginLeft: '5px' }}>
+      <div style={{ position: 'relative', marginLeft: '2px' }}>
         <button
           onClick={toggleLike}
           disabled={isLoading}
@@ -106,10 +121,11 @@ const LikeButton = ({ postId, userId, jwtToken, initialLikeCount, initialLikeSta
             background: 'none',
             border: 'none',
             cursor: isLoading ? 'not-allowed' : 'pointer',
-            color: isLiked ? 'red' : '#888',
+            color: isLiked ? 'black' : '#888',
+            overflow:'hidden'
           }}
         >
-          👍
+          <FaHeart size={18}/>
         </button>
         {isLoading && (
           <ClipLoader
@@ -119,6 +135,7 @@ const LikeButton = ({ postId, userId, jwtToken, initialLikeCount, initialLikeSta
             style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}
           />
         )}
+
       </div>
     </div>
   );

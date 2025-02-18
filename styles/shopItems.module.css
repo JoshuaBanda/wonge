@@ -1,6 +1,6 @@
 .container {
     position: relative;
-    border:1px solid #ccc;
+    border:1px solid #cccccc00;
     border-radius: 10px;
     margin:50px 5%;
     width: 150px;
@@ -53,13 +53,31 @@
 .likeButton{
     position: absolute;
     top:10px;
-    color:white;
-    right: 10px;
-    height: 30px;
-    width: 30px;
+    right: 1px;
+    height: 35px;
+    width: 35px;
     border: 1px solid white;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     padding-top: 5px;
+    background-color: white;
+}
+
+.addToCart{
+    position: relative;
+    margin: 10px 1px 1px 1px;
+    border: 1px solid black;
+    border-radius: 30px;
+    width: 145px;
+    padding: 5px;
+    background-color: black;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.addToCart p{
+    color: white;
+    padding: 0px;
 }
