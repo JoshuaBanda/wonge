@@ -33,12 +33,13 @@ const EditProducts = () => {
         try {
             // Delete item photo from backend if publicId is present
             if (publicId) {
-                await axios.delete(`https://wongebackend.onrender.com/shops/${itemId}/photos/${encodeURIComponent(publicId)}`);
+                await axios.delete(`https://wonge-backend.onrender.com/inventory/${itemId}`);
             }
 
             // Delete item from backend
-            await axios.delete(`https://wongebackend.onrender.com/shops/${itemId}`);
+            const response=await axios.delete(`https://wonge-backend.onrender.com/inventory/${itemId}`);
             setShopItems(prevItems => prevItems.filter(item => item.id !== itemId));
+            console.log('status', response.status,'data ',response.data);
             setMessage("Item deleted successfully.");
         } catch (error) {
             setMessage(error.response?.data?.message || "Failed to delete item.");
@@ -69,7 +70,7 @@ const EditProducts = () => {
         try {
             const updatedItem = { ...editForm, price: parseFloat(editForm.price) };
             setShopItems(prevItems => prevItems.map(item => (item.id === itemId ? { ...item, ...updatedItem } : item)));
-            await axios.put(`https://wongebackend.onrender.com/shops/${itemId}`, updatedItem);
+            await axios.patch(`https://wonge-backend.onrender.com/inventory/${itemId}/description`, updatedItem);
             setMessage("Item updated successfully.");
         } catch (error) {
             setMessage("Failed to update item.");

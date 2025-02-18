@@ -211,7 +211,7 @@ function Navbar() {
               </Link>
             </motion.div>
 
-
+            
             <motion.div variants={linkVariants} custom={4}>
               <Link
                 href="/Policy"
@@ -219,6 +219,17 @@ function Navbar() {
                 onClick={closeSidebar}
               >
                 Policies
+              </Link>
+            </motion.div>
+
+
+            <motion.div variants={linkVariants} custom={5}>
+              <Link
+                href="/manageInventory/ManageInventory"
+                style={{ ...sidebarLinkStyles, display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}
+                onClick={closeSidebar}
+              >
+                Settings
               </Link>
             </motion.div>
 
