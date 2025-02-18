@@ -2,12 +2,27 @@
     position: relative;
     border:1px solid #ccc;
     border-radius: 10px;
-    margin:50px 10%;
-    width: 250px;
+    margin:50px 5%;
+    width: 150px;
     overflow: hidden;
+    flex-shrink: 0;
 
 }
 
+
+/* For Firefox */
+.scroll-container {
+    scrollbar-width: none; /* Hides scrollbar in Firefox */
+  }
+  
+  /* For Webkit-based browsers (Chrome, Safari, Edge) */
+  .scroll-container::-webkit-scrollbar {
+    display: none; /* Hides scrollbar */
+  }
+  
+.picContainer div:hover{
+    background-color: rgba(0,0,0,0.5);
+}
 .pic{
     object-fit: cover;
     
@@ -16,15 +31,14 @@
     position: relative;
     display: flex;
     justify-content: center;
-    align-items: center;
-    color: #636161;
+    color: #000000;
 }
 
 
 .txt p{
     position: relative;
     display: flex;
-    color: #636161;
+    color: #202020;
     margin: 5px;
 }
 .motivationcaute {
@@ -35,4 +49,17 @@
     text-align: center;       /* Ensure the text is centered within the span */
     color: #4e4e4e;
     padding: 10px;            /* Add some padding if needed */
+}
+.likeButton{
+    position: absolute;
+    top:10px;
+    color:white;
+    right: 10px;
+    height: 30px;
+    width: 30px;
+    border: 1px solid white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    padding-top: 5px;
 }
