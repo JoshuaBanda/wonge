@@ -1,6 +1,8 @@
+// ShopItems Component
 import { useState, useEffect } from "react";
 import axios from "axios"; // Import axios
 import Image from "next/image";
+import Link from "next/link";  // Import Link from Next.js
 import styles from '../../styles/shopItems.module.css'
 import Spinner from "../oldVersion/Spinning";
 import { FaHeart, FaStar, FaStarHalf } from "react-icons/fa";
@@ -29,8 +31,6 @@ const ShopItems = ({ searchItem, jwtToken='1', post='2', currentUserId='1', apiS
   const [likeCount, setLikeCount] = useState(0);
   const [isLiked, setIsLiked] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-
-
 
   // Fetch items from the API based on the search term
   useEffect(() => {
@@ -64,18 +64,13 @@ const ShopItems = ({ searchItem, jwtToken='1', post='2', currentUserId='1', apiS
     fetchLikeData(jwtToken, post.postId, currentUserId, apiService, setLikeCount, setIsLiked, setErrorMessage);
   }, [jwtToken, post.postId, currentUserId, apiService]);
 
+  const checkDescriptionLength = (str) => str.length <= 25;
 
-  const checkDescriptionLength=(str)=>{
-    return str.length <= 25;
-  }
-  
-  const checkNameLength=(str)=>{
-    return str.length <= 10;
-  }
+  const checkNameLength = (str) => str.length <= 10;
 
   // Map over the items to create the list of items
   const homeItems = Array.isArray(items) && items.map((item) => (
-    <div key={item.id} style={{ }} className={styles.container}>
+    <div key={item.id} className={styles.container}>
       {/* Check if photo_url exists and display the image */}
       {item.photo_url ? (
         <div className={styles.picContainer}>
@@ -96,44 +91,29 @@ const ShopItems = ({ searchItem, jwtToken='1', post='2', currentUserId='1', apiS
       ) : (
         <p>No image available</p>
       )}
-      <div className={styles.txt}>
       
-      <h3 style={{
-          height:'40px'
-        }}>
-        {checkNameLength(item.name) ? (
-          item.name
-        ) : (
-          `${item.name.slice(0, 10)}...`  // Truncate to 10 characters and append '...'
-        )}
-      </h3>
-        <p style={{
-          height:'40px'
-        }}>
-        {checkDescriptionLength(item.description) ? (
-          item.description
-        ) : (
-          `${item.description.slice(0, 25)}...`  // Truncate to 10 characters and append '...'
-        )}
-      </p>
+      <div className={styles.txt}>
+        <h3 style={{ height: '40px' }}>
+          {checkNameLength(item.name) ? item.name : `${item.name.slice(0, 10)}...`}  {/* Truncate if name is too long */}
+        </h3>
+        
+        <p style={{ height: '40px' }}>
+          {checkDescriptionLength(item.description) ? item.description : `${item.description.slice(0, 25)}...`}  {/* Truncate if description is too long */}
+        </p>
         <p>Price: ${item.price}</p>
+        
+        {/* Add Link to individual product page */}
+        <Link href={`/home/${item.id}`}>
+          <p className={styles.viewProductLink}>View Product</p>
+        </Link>
       </div>
 
       <div className={styles.addToCart}>
-        <p>
-            Add to cart
-        </p>
-        <FaCartShopping style={{
-            position:'relative',
-            color:'white',
-            marginLeft:'5px',
-        }}/>
+        <p>Add to cart</p>
+        <FaCartShopping style={{ position: 'relative', color: 'white', marginLeft: '5px' }} />
       </div>
     </div>
   ));
-
-
-
 
   return (
     <>
@@ -142,18 +122,20 @@ const ShopItems = ({ searchItem, jwtToken='1', post='2', currentUserId='1', apiS
           At Wonge Enterprise, we’ve got exactly what you’re looking for! Searching for {searchItem} products? We’ve got you covered—find the perfect fit for you today.
         </span>
       </div>
-      
-      <div style={{
-        position: "relative",
-        margin: "0px 10px 100px 10px",
-        display: "flex",
-        overflowX: "auto", // Allows horizontal scrolling
-        flexWrap: "nowrap", // Prevents wrapping
-        paddingBottom: "10px", // Optional, adds space for the scrollbar
-        scrollbarWidth: "none", // Firefox
-        WebkitOverflowScrolling: "touch", // iOS smooth scrolling
-      }} className="scroll-container">
-        
+
+      <div
+        style={{
+          position: "relative",
+          margin: "0px 10px 100px 10px",
+          display: "flex",
+          overflowX: "auto", // Allows horizontal scrolling
+          flexWrap: "nowrap", // Prevents wrapping
+          paddingBottom: "10px", // Optional, adds space for the scrollbar
+          scrollbarWidth: "none", // Firefox
+          WebkitOverflowScrolling: "touch", // iOS smooth scrolling
+        }}
+        className="scroll-container"
+      >
         {homeItems.length > 0 ? homeItems : <Spinner />}
       </div>
 
