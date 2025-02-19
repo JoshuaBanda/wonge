@@ -73,9 +73,9 @@ const HomePage = () => {
                 return (
                   <motion.li
                     key={index}
-                    initial={{ opacity: 0, x: 200 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ type: 'tween', stiffness: 70, duration: 1 }}
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ type:'keyframes', stiffness: 100, duration: 2 }}
                     style={{
                       marginLeft: "10px",  // Adds space between items
                       cursor: "pointer",  // Change cursor to pointer when hovering

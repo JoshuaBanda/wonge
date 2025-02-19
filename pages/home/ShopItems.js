@@ -30,6 +30,8 @@ const ShopItems = ({ searchItem, jwtToken='1', post='2', currentUserId='1', apiS
   const [isLiked, setIsLiked] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
+
+
   // Fetch items from the API based on the search term
   useEffect(() => {
     const search = async () => {
@@ -62,6 +64,15 @@ const ShopItems = ({ searchItem, jwtToken='1', post='2', currentUserId='1', apiS
     fetchLikeData(jwtToken, post.postId, currentUserId, apiService, setLikeCount, setIsLiked, setErrorMessage);
   }, [jwtToken, post.postId, currentUserId, apiService]);
 
+
+  const checkDescriptionLength=(str)=>{
+    return str.length <= 25;
+  }
+  
+  const checkNameLength=(str)=>{
+    return str.length <= 10;
+  }
+
   // Map over the items to create the list of items
   const homeItems = Array.isArray(items) && items.map((item) => (
     <div key={item.id} style={{ }} className={styles.container}>
@@ -86,8 +97,25 @@ const ShopItems = ({ searchItem, jwtToken='1', post='2', currentUserId='1', apiS
         <p>No image available</p>
       )}
       <div className={styles.txt}>
-        <h3>{item.name}</h3>
-        <p>{item.description}</p>
+      
+      <h3 style={{
+          height:'40px'
+        }}>
+        {checkNameLength(item.name) ? (
+          item.name
+        ) : (
+          `${item.name.slice(0, 10)}...`  // Truncate to 10 characters and append '...'
+        )}
+      </h3>
+        <p style={{
+          height:'40px'
+        }}>
+        {checkDescriptionLength(item.description) ? (
+          item.description
+        ) : (
+          `${item.description.slice(0, 25)}...`  // Truncate to 10 characters and append '...'
+        )}
+      </p>
         <p>Price: ${item.price}</p>
       </div>
 
@@ -103,6 +131,9 @@ const ShopItems = ({ searchItem, jwtToken='1', post='2', currentUserId='1', apiS
       </div>
     </div>
   ));
+
+
+
 
   return (
     <>
