@@ -5,16 +5,16 @@ import styles from "../../styles/Carousel.module.css"; // Import the custom CSS 
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const images = [
-    "/wonge5.jpg",
-    "/wonge2.jpg",
-    "/wonge3.jpg",
-    "/wonge4.jpg",
-    "/wonge5.jpg",
-    "/wonge6.jpg",
-    "/wonge7.jpg",
-    "/wonge8.jpg",
-    "/wonge9.jpg",
-    "/yo.jpg",
+    "/lotion2.jpg",
+    "/perfume1.jpg",
+    "/broch1.jpg",
+    "/earring2.jpg",
+    "/lotion1.jpg",
+    "/perfume2.jpg",
+    "/broch2.jpg",
+    "/earring3.jpg",
+    "/perfume3.jpg",
+    "/lotion.jpg",
   ];
   
 

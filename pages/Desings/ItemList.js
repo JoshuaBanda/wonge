@@ -10,7 +10,7 @@ const ItemList = () => {
                     <div className={styles.item}>
                         <div className={styles.photoContainer}>
                             <Image
-                                src='/wonge2.jpg'
+                                src='/lotion.jpg'
                                 alt='Earrings'
                                 layout='fill'
                                 quality={80}
@@ -25,7 +25,7 @@ const ItemList = () => {
                     <div className={styles.item}>
                         <div className={styles.photoContainer}>
                             <Image
-                                src='/wonge2.jpg'
+                                src='/perfume.jpg'
                                 alt='Earrings'
                                 layout='fill'
                                 quality={80}
@@ -40,7 +40,7 @@ const ItemList = () => {
                     <div className={styles.item}>
                         <div className={styles.photoContainer}>
                             <Image
-                                src='/wonge2.jpg'
+                                src='/earring.jpg'
                                 alt='Earrings'
                                 layout='fill'
                                 quality={80}
@@ -55,7 +55,7 @@ const ItemList = () => {
                     <div className={styles.item}>
                         <div className={styles.photoContainer}>
                             <Image
-                                src='/wonge2.jpg'
+                                src='/brochus.jpg'
                                 alt='Earrings'
                                 layout='fill'
                                 quality={80}
