@@ -27,7 +27,8 @@ const fetchLikeData = async (jwtToken, postId, currentUserId, apiService, setLik
   }
 };
 
-const ShopItems = ({ searchItem, jwtToken='1', post='2', currentUserId='1', apiService }) => {
+const ShopItems = ({ searchItem, jwtToken='1', post='', currentUserId, apiService }) => {
+  console.log('post',post);
   const [items, setItems] = useState([]); // Initialize as an empty array
   const [likeCount, setLikeCount] = useState(0);
   const [isLiked, setIsLiked] = useState(false);
