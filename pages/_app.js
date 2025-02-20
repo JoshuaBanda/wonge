@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import Navbar from '../components/Navbar'; // Adjust path if necessary
 import '../styles/globals.css'; // Import your global styles
 import Footer from '../components/Footer';
+import Head from 'next/head';
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -11,6 +12,14 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
+
+      <Head>
+        <>
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+          <link href="https://fonts.googleapis.com/css2?family=Grechen+Fuemen&family=Lavishly+Yours&display=swap" rel="stylesheet"/>
+        </>
+      </Head>
       {/* Render the navbar only if the user is not on the landing page */}
       {!isLandingPage && <Navbar />}
 

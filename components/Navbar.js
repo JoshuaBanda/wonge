@@ -125,13 +125,11 @@ function Navbar() {
       </button>
 
       <div style={headingContainerStyles}>
-        <motion.div
-          initial={{ x: -100 }}
-          animate={{ x: -30 }}
-          transition={{ type: 'spring', stiffness: 70, duration: 1, repeat: 2, repeatType: 'reverse' }}
-        >
-          <AnimatedWord iconsize={`20px`} fsize={`22px`} key={headerAnimationKey} />
-        </motion.div>
+      <div style={{
+        fontSize:'30px'
+      }}>
+        Wonge
+      </div>
       </div>
       <div style={{
         position:"relative",

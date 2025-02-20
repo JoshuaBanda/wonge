@@ -33,7 +33,6 @@ const HomePage = () => {
           position: "relative",
           display: "flex",
           fontSize: "30px",
-          fontFamily: "initial",
           alignItems: "center",
           justifyContent: "center",  // Centers the text horizontally
           height: "5vh", // If you want to vertically center the text in the viewport
@@ -100,7 +99,6 @@ const HomePage = () => {
   alignItems: "center",       // Vertically centers the content
   justifyContent: "center",   // Horizontally centers the content
   height: "40px",             // Ensures the content is centered in the viewport
-  fontFamily:"monospace",
   fontSize:"18px"
 }}>
   What are you looking for?
