@@ -18,7 +18,22 @@ const ItemList = () => {
                                 style={{ objectFit: 'cover' }} // Ensures the image covers the container
                             />
                         </div>
-                        <p>Earrings</p>
+                        <p>Avon Lotion</p>
+                    </div>
+                </li>
+                <li>
+                    <div className={styles.item}>
+                        <div className={styles.photoContainer}>
+                            <Image
+                                src='/wonge2.jpg'
+                                alt='Earrings'
+                                layout='fill'
+                                quality={80}
+                                priority
+                                style={{ objectFit: 'cover' }} // Ensures the image covers the container
+                            />
+                        </div>
+                        <p>Perfume</p>
                     </div>
                 </li>
                 <li>
@@ -48,22 +63,7 @@ const ItemList = () => {
                                 style={{ objectFit: 'cover' }} // Ensures the image covers the container
                             />
                         </div>
-                        <p>Earrings</p>
-                    </div>
-                </li>
-                <li>
-                    <div className={styles.item}>
-                        <div className={styles.photoContainer}>
-                            <Image
-                                src='/wonge2.jpg'
-                                alt='Earrings'
-                                layout='fill'
-                                quality={80}
-                                priority
-                                style={{ objectFit: 'cover' }} // Ensures the image covers the container
-                            />
-                        </div>
-                        <p>Earrings</p>
+                        <p>Bronchus</p>
                     </div>
                 </li>
             </ul>    

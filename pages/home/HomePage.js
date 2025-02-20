@@ -17,7 +17,6 @@ const HomePage = () => {
     // Set the selected item and change its background color to black
     setSelectedItem(item);
 
-    console.log(item ,"selected");
 
     setSearch(item);
   };

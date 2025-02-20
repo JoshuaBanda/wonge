@@ -8,6 +8,7 @@ import Spinner from "../oldVersion/Spinning";
 import { FaHeart, FaStar, FaStarHalf } from "react-icons/fa";
 import { FaCartShopping, FaStarHalfStroke } from "react-icons/fa6";
 import LikeButton from "../like/LikeButton";
+import CutEdgeText from "../Desings/CutEdgeText";
 
 // Function to fetch like data for a specific post
 const fetchLikeData = async (jwtToken, postId, currentUserId, apiService, setLikeCount, setIsLiked, setErrorMessage) => {
@@ -103,8 +104,10 @@ const ShopItems = ({ searchItem, jwtToken='1', post='2', currentUserId='1', apiS
         <p>Price: ${item.price}</p>
         
         {/* Add Link to individual product page */}
-        <Link href={`/home/${item.id}`}>
-          <p className={styles.viewProductLink}>View Product</p>
+        <Link href={`/home/${item.id}`} >
+
+        <CutEdgeText/>
+
         </Link>
       </div>
 
@@ -136,7 +139,7 @@ const ShopItems = ({ searchItem, jwtToken='1', post='2', currentUserId='1', apiS
         }}
         className="scroll-container"
       >
-        {homeItems.length > 0 ? homeItems : <Spinner />}
+        {homeItems.length > 0 ? homeItems : <div style={{position:'relative',margin:'40px auto',}}><Spinner /></div> }
       </div>
 
       {/* Show error message if there's an error */}

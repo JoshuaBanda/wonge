@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from '../../styles/ProductPage.module.css'; // Import the CSS module
-import { FaCartShopping } from 'react-icons/fa6';
+import { FaCartPlus } from 'react-icons/fa';
 
 const ProductPage = () => {
   const [product, setProduct] = useState(null);
@@ -38,8 +38,13 @@ const ProductPage = () => {
           <h1 className={styles.productName}>{product.name}</h1>
           <p className={styles.productDescription}>{product.description}</p>
           <p className={styles.productPrice}>${product.price}</p>
-          <button className={styles.addToCartBtn}>Add to Cart
-            <FaCartShopping/>
+          <button className={styles.addToCartBtn}>
+            <div>
+                Add to Cart 
+            </div>
+            <div>
+                <FaCartPlus/>
+            </div>
           </button>
         </div>
       </div>

@@ -39,7 +39,7 @@
     align-items: center;
     gap: 10px;
     width: 100%;
-    border-radius: 2%;
+    border-radius: 5%;
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.1);
   }
@@ -75,6 +75,10 @@
     border-radius: 20px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    display: flex;
+  }
+  .addToCartBtn div{
+    padding:0px 5px;
   }
   
   .addToCartBtn:hover {
