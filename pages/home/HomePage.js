@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import ItemList from "../Desings/ItemList";
 import axios from "axios";
 import ShopItems from "./ShopItems";
+import PaperText from "../Desings/PaperEdge";
 
 const HomePage = () => {
   const items = ["Avon", "Earrings", "Brochus",];
@@ -65,8 +66,8 @@ const HomePage = () => {
               {items.map((item, index) => {
                 // Determine background and text color based on selected item
                 const isSelected = selectedItem === item;
-                const myBackgroudColor = isSelected ? "black" : "white";
-                const myTextColor = isSelected ? "wheat" : "black"; // If selected, text color is wheat
+                const myBackgroudColor = isSelected ? "#A47864" : "white";
+                const myTextColor = isSelected ? "white" : "black"; // If selected, text color is wheat
 
                 return (
                   <motion.li
@@ -76,7 +77,9 @@ const HomePage = () => {
                     transition={{ type:'keyframes', stiffness: 100, duration: 2 }}
                     style={{
                       marginLeft: "10px",  // Adds space between items
-                      cursor: "pointer",  // Change cursor to pointer when hovering
+                      cursor: "pointer",
+                       // Change cursor to pointer when hovering
+                       fontSize:'22px'
                     }}
                     onClick={() => handleOnClick(item)} // Handle item click
                   >
@@ -101,7 +104,7 @@ const HomePage = () => {
   height: "40px",             // Ensures the content is centered in the viewport
   fontSize:"18px"
 }}>
-  What are you looking for?
+<PaperText/>
 </div>
 
         <ItemList/>

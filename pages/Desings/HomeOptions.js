@@ -9,7 +9,7 @@ const HomeOptions = ({text,myBackgroudColor,myTextColor}) => {
                     position:"relative",
                     width:"150px",
                     height:"35px",
-                    border:"1px solid rgba(0,0,0,0.3)",
+                    border:"1px solid rgba(164, 120, 100, 0.24)",
                     borderRadius:"20px",
                     backgroundColor:myBackgroudColor,
                     color:myTextColor,

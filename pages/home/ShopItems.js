@@ -114,7 +114,7 @@ const ShopItems = ({ searchItem, jwtToken='1', post='', currentUserId, apiServic
 
       <div className={styles.addToCart}>
         <p>Add to cart</p>
-        <FaCartShopping style={{ position: 'relative', color: 'white', marginLeft: '5px' }} />
+        <FaCartShopping style={{ position: 'relative', color: 'rgba(0,0,0,0.3)', marginLeft: '5px' }} />
       </div>
     </div>
   ));

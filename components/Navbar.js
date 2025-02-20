@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { FaBars, FaHome, FaSearch } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
+import { FaBarsProgress, FaBarsStaggered } from 'react-icons/fa6';
 
 // Animation variants for the sidebar links
 const linkVariants = {
@@ -121,7 +122,7 @@ function Navbar() {
     <div style={navbarStyles}>
       {/* Menu button on the left */}
       <button id="menuButton" onClick={toggleSidebar} style={buttonStyles} aria-label="Toggle menu">
-        <FaBars style={menuIconStyles} />
+        <FaBarsStaggered style={menuIconStyles} />
       </button>
 
       <div style={headingContainerStyles}>
@@ -133,13 +134,13 @@ function Navbar() {
       </div>
       <div style={{
         position:"relative",
-        top:"10px",
+        top:"5px",
         left:"80px",
-        marginRight:"0px"
+        marginRight:"10px"
       }}>
         {/*seach icon*/}
         <Link href='/Searching'>
-          <FaSearch/>
+          <FaSearch color='rgba(87, 82, 82, 0.81)'/>
         </Link>
       </div>
 
@@ -288,7 +289,7 @@ const buttonStyles = {
 
 const menuIconStyles = {
   fontSize: '25px',
-  color: 'rgba(60, 60, 60, 1)',
+  color: 'rgba(87, 82, 82, 0.81)',
 };
 
 const sidebarStyles = {
