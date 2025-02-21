@@ -1,17 +1,20 @@
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
-
+import { useRouter } from "next/router";
 const SearchBox = () => {
+    const router = useRouter();
     const [isSearching, setIsSearching] = useState(false);
     const [searchWord, setSearchWord] = useState("");
 
     const handleOnClick = async () => {
-        setIsSearching(true);
+        router.push('/Searching');
     };
 
     return (
         <>
-            <div style={{
+            <div 
+                onClick={handleOnClick} 
+                        style={{
                 position: "relative",
                 margin: "80px 60px 10px 10px",
                 display: "flex",
@@ -42,11 +45,11 @@ const SearchBox = () => {
                             color: "#fff",
                             outline: "none",
                             boxSizing: "border-box",
-                            transition: "all 0.3s ease"
+                            transition: "all 0.3s ease",
+                            backgroundColor:'rgba(255,255,255,0.5)',border:'1px solid rgba(0,0,0,0.1)'
                         }}
                     />
                     <button
-                        onClick={handleOnClick}
                         style={{
                             backgroundColor: "white",
                             border: "none",
