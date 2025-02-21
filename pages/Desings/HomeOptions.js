@@ -7,7 +7,7 @@ const HomeOptions = ({text,myBackgroudColor,myTextColor}) => {
                         
                 <div style={{
                     position:"relative",
-                    width:"150px",
+                    width:"90px",
                     height:"35px",
                     border:"1px solid rgba(164, 120, 100, 0.24)",
                     borderRadius:"20px",

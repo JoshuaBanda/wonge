@@ -1,20 +1,16 @@
-import axios from "axios";
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import ShopItems from "./home/ShopItems";
-import WaveStyledComponent from "./Desings/WaveStyledComponent";
 
-const Earching = () => {
+const SearchBox = () => {
+    const [isSearching, setIsSearching] = useState(false);
+    const [searchWord, setSearchWord] = useState("");
 
-    const [isSearching,setIsSearching]=useState(false);
-    const [searchWord,setSearchWord]=useState("");
-
-    const handleOnclick=async()=>{
+    const handleOnClick = async () => {
         setIsSearching(true);
-    }
+    };
+
     return (
         <>
-
             <div style={{
                 position: "relative",
                 margin: "80px 60px 10px 10px",
@@ -50,7 +46,7 @@ const Earching = () => {
                         }}
                     />
                     <button
-                        onClick={handleOnclick}
+                        onClick={handleOnClick}
                         style={{
                             backgroundColor: "white",
                             border: "none",
@@ -70,18 +66,8 @@ const Earching = () => {
                     </button>
                 </div>
             </div>
-            {isSearching?(
-                <div>
-                    <ShopItems searchItem={searchWord}/>
-                </div>
-            ):(
-                <div>
-                    <WaveStyledComponent/>
-                </div>
-            )
-            }
         </>
     );
-}
- 
-export default Earching;
+};
+
+export default SearchBox;

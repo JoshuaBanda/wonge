@@ -1,0 +1,36 @@
+/* WaveStyledComponent.module.css */
+
+/* Keyframes for the wave gradient effect */
+@keyframes waveGradient {
+    0% {
+        background-position: 200% 0;
+    }
+    50% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Style for each div with the wave effect */
+.waveContainer {
+    position: relative;
+    margin: 80px 20px 10px 20px;
+    border: 1px solid rgba(240, 241, 221, 0.938);
+    height: 300px;
+    width: 220px;
+    border-radius: 15px;
+    overflow: hidden; /* To hide any part of the wave outside the container */
+    background: linear-gradient(90deg, #e2e2e2, #f8f8f8, #e2e2e2);
+    background-size: 200% 100%;
+    animation: waveGradient 5s infinite ease-in-out;
+}
+
+/* Style for the wrapper to align items horizontally */
+.wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

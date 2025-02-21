@@ -46,8 +46,6 @@ const ShopItems = ({ searchItem, jwtToken='1', post='', currentUserId, apiServic
             `https://wonge-backend.onrender.com/search/search?name=${searchItem}`
           );
 
-          console.log("API response data:", response.data);
-          
           // Access the 'products' array in the response and set it to items state
           setItems(Array.isArray(response.data.products) ? response.data.products : []); 
         } catch (error) {
@@ -114,7 +112,7 @@ const ShopItems = ({ searchItem, jwtToken='1', post='', currentUserId, apiServic
 
       <div className={styles.addToCart}>
         <p>Add to cart</p>
-        <FaCartShopping style={{ position: 'relative', color: 'rgba(0,0,0,0.3)', marginLeft: '5px' }} />
+        <FaCartShopping style={{ position: 'relative', color: ' #A47864', marginLeft: '5px' }} />
       </div>
     </div>
   ));

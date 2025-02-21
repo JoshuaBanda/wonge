@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Carousel from "./Carousel";
 import HomeOptions from "../Desings/HomeOptions";
 import { motion } from 'framer-motion';
@@ -6,9 +6,10 @@ import ItemList from "../Desings/ItemList";
 import axios from "axios";
 import ShopItems from "./ShopItems";
 import PaperText from "../Desings/PaperEdge";
+import SearchBox from "../Desings/SearchBox";
 
 const HomePage = () => {
-  const items = ["Avon", "Earrings", "Brochus",];
+  const items = ["Avon", "Earrings", "Brochus",'Perfume'];
   
   // State to keep track of selected item
   const [selectedItem, setSelectedItem] = useState(null);
@@ -22,6 +23,13 @@ const HomePage = () => {
     setSearch(item);
   };
 
+  useEffect(()=>{
+    const run=()=>{
+      handleOnClick('Avon');
+    }
+    run();
+  },[])
+
   return (
     <>
       <div>
@@ -29,6 +37,10 @@ const HomePage = () => {
           position: "relative",
           marginTop: "80px",
         }}></div>
+
+        <div>
+          <SearchBox/>
+        </div>
 
         <div style={{
           position: "relative",
@@ -102,7 +114,8 @@ const HomePage = () => {
   alignItems: "center",       // Vertically centers the content
   justifyContent: "center",   // Horizontally centers the content
   height: "40px",             // Ensures the content is centered in the viewport
-  fontSize:"18px"
+  fontSize:"18px",
+  margin:'50px 20px'
 }}>
 <PaperText/>
 </div>
