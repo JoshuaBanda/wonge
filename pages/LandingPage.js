@@ -85,7 +85,7 @@ const LandingPage = () => {
         }}
         initial={{ opacity: 0.5 }}
         animate={{ opacity: 1, }}
-        transition={{ delay: 2 }}
+        transition={{ delay: 3 }}
       >
       <div>
         Continue
@@ -135,7 +135,7 @@ const LandingPage = () => {
                     initial={{ y: -700 }}
                     animate={{ y: 0 }}
                     transition={{
-                        type: 'spring', stiffness: 40, duration: 50, repeat: 2, repeatType: 'reverse',
+                        type: 'spring', stiffness: 40, duration: 50, repeat: 2, repeatType: 'reverse',delay:3
                     }}
                     >
                         <Image
@@ -171,7 +171,7 @@ const LandingPage = () => {
                     initial={{ x: -500 }}
                     animate={{ x: 0 }}
                     transition={{
-                        type: 'spring', stiffness: 40, duration: 50, repeat: 2, repeatType: 'reverse',
+                        type: 'spring', stiffness: 40, duration: 50, repeat: 2, repeatType: 'reverse',delay:3
                     }}
                         >
                             <Image
@@ -197,7 +197,7 @@ const LandingPage = () => {
                     initial={{ y: -800 }}
                     animate={{ y: 0 }}
                     transition={{
-                        type: 'spring', stiffness: 45, duration: 50, repeat: 2, repeatType: 'reverse',
+                        type: 'spring', stiffness: 45, duration: 50, repeat: 2, repeatType: 'reverse',delay:3
                     }}
                         >
                             <Image
@@ -225,7 +225,7 @@ const LandingPage = () => {
                     initial={{ y: -700 }}
                     animate={{ y: 0 }}
                     transition={{
-                        type: 'spring', stiffness: 40, duration: 50, repeat: 2, repeatType: 'reverse',
+                        type: 'spring', stiffness: 40, duration: 50, repeat: 2, repeatType: 'reverse',delay:3
                     }}
                 >
                     <Image
@@ -255,7 +255,7 @@ const LandingPage = () => {
                     initial={{ y: 700 }}
                     animate={{ y: 0 }}
                     transition={{
-                        type: 'spring', stiffness: 70, duration: 50, repeat: 2, repeatType: 'reverse',
+                        type: 'spring', stiffness: 70, duration: 50, repeat: 2, repeatType: 'reverse',delay:3
                     }}
                 >
                     <Image
@@ -290,7 +290,7 @@ const LandingPage = () => {
                     initial={{ x: 700 }}
                     animate={{ x: 0 }}
                     transition={{
-                        type: 'spring', stiffness: 40, duration: 70, repeat: 2, repeatType: 'reverse',
+                        type: 'spring', stiffness: 40, duration: 70, repeat: 2, repeatType: 'reverse',delay:3
                     }}
                     >
                         <Image
@@ -316,7 +316,7 @@ const LandingPage = () => {
                     initial={{ x: 700 }}
                     animate={{ x: 0 }}
                     transition={{
-                        type: 'spring', stiffness: 35, duration: 70, repeat: 2, repeatType: 'reverse',
+                        type: 'spring', stiffness: 35, duration: 70, repeat: 2, repeatType: 'reverse',delay:3
                     }}>
                         <Image
                             src='/wonge3.jpg'
@@ -339,7 +339,7 @@ const LandingPage = () => {
                     initial={{ x: 700 }}
                     animate={{ x: 0 }}
                     transition={{
-                        type: 'spring', stiffness: 30, duration: 70, repeat: 2, repeatType: 'reverse',
+                        type: 'spring', stiffness: 30, duration: 70, repeat: 2, repeatType: 'reverse',delay:3
                     }}>
                         <Image
                             src='/wonge2.jpg'
