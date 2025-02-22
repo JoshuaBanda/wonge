@@ -17,7 +17,7 @@ const Carousel = () => {
     "/lotion.jpg",
   ];
   
-/*
+
   const totalItems = images.length;
 
   const nextSlide = () => {
@@ -28,7 +28,7 @@ const Carousel = () => {
     setCurrentIndex(
       (prevIndex) => (prevIndex - 1 + totalItems) % totalItems
     );
-  };*/
+  };
 
   // Auto slide functionality (optional)
   useEffect(() => {
