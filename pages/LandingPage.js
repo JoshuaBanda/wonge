@@ -85,7 +85,7 @@ const LandingPage = () => {
         }}
         initial={{ opacity: 0.5 }}
         animate={{ opacity: 1, }}
-        transition={{ delay: 3 }}
+        transition={{ delay: 2 }}
       >
       <div>
         Continue
