@@ -59,10 +59,8 @@ const CreateAccountPage = () => {
       });
 
       // If the request is successful
-      console.log("Account created successfully", response.data);
-
-      // Redirect to a success page or dashboard
-      router.push("/success"); // Customize the redirection path
+      
+      router.push('/home/HomePage');
     } catch (error) {
       // Handle error
       console.error("Error creating user:", error.message);

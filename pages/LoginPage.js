@@ -35,7 +35,6 @@ const LoginPage = () => {
       handleLoading();
 
       
-      console.log(response.status);
 
       // Handle the response (e.g., check if authentication is successful)
       if (response.status === 201) {
