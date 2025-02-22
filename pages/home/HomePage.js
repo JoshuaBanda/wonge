@@ -144,7 +144,7 @@ const HomePage = () => {
 
             style={{
               position: 'relative',
-              margin: '-30px 0px 150px 50px',
+              margin: '-50px 0px 150px 0px',
               textAlign: 'center',
               fontSize: '24px',
               fontWeight: 'bold',
