@@ -1,142 +1,186 @@
 import { useEffect, useState } from "react";
 import Carousel from "./Carousel";
 import HomeOptions from "../Desings/HomeOptions";
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion'; // Import AnimatePresence
 import ItemList from "../Desings/ItemList";
 import axios from "axios";
 import ShopItems from "./ShopItems";
 import PaperText from "../Desings/PaperEdge";
 import SearchBox from "../Desings/SearchBox";
 import ScrollAnimatedComponent from "../Desings/ScrollableAnimatedComponent";
+import { useInView } from "react-intersection-observer";
+import styled from 'styled-components'; // Styled-components for cleaner styling
 
 const HomePage = () => {
-  const items = ["Avon", "Earrings", "Brochus",'Perfume'];
-  
+  const { ref: listRef, inView: listInView } = useInView({
+    threshold: 0.5,
+  });
+
+  const { ref: shopRef, inView: shopInView } = useInView({
+    threshold: 0.5,
+  });
+
+  const items = ["Avon", "Earrings", "Brochus", 'Perfume'];
+
   // State to keep track of selected item
   const [selectedItem, setSelectedItem] = useState(null);
-  const [search,setSearch]=useState("Avon");
+  const [search, setSearch] = useState("Avon");
+
   // Handle when an item is clicked
   const handleOnClick = (item) => {
-    // Set the selected item and change its background color to black
     setSelectedItem(item);
-
-
-    setSearch(item);
+    setSearch(item); // Update search when an item is clicked
   };
 
-  useEffect(()=>{
-    const run=()=>{
-      handleOnClick('Avon');
-    }
-    run();
-  },[])
+  useEffect(() => {
+    // Pre-select an item on initial load
+    handleOnClick('Avon');
+  }, []);
 
   return (
     <>
-      <div>
-        <div style={{
-          position: "relative",
-          marginTop: "80px",
-        }}></div>
+      <Container>
+        <SearchBox />
 
-        <div>
-          <SearchBox/>
-        </div>
+        <Title>Find the best Cosmetics</Title>
 
-        <div style={{
-          position: "relative",
-          display: "flex",
-          fontSize: "30px",
-          alignItems: "center",
-          justifyContent: "center",  // Centers the text horizontally
-          height: "5vh", // If you want to vertically center the text in the viewport
-          fontFamily: 'DM Sans, sans-serif',
-            color: '#333',
-            fontWeight:'bolder',
-        }}>
-          Find the best Cosmetics
-        </div>
+        <ItemsListContainer>
+          <ul>
+            {items.map((item, index) => {
+              const isSelected = selectedItem === item;
+              const myBackgroudColor = isSelected ? "#A47864" : "white";
+              const myTextColor = isSelected ? "white" : "black";
 
-        <div style={{
-          position: "relative",
-          padding: "10px",
-          margin: "10px",
-        }}>
-
-          <div style={{
-            display: "flex",
-            justifyContent: "flex-start", // Aligns the list to the left
-            flexDirection: "row-reverse",  // This arranges the items from right to left
-            overflowX: "scroll", // Enables scrolling but hides the scrollbar
-            maxWidth: "100%", // Ensures the list doesn't overflow its container
-            paddingBottom: "10px", // Adds some space for the scrollable area
-            scrollbarWidth: "none", // For Firefox: hides the scrollbar
-          }}>
-            <ul style={{
-              listStyle: "none",
-              padding: "0",
-              margin: "0",
-              display: "flex",  // Makes sure the list items are in a row
-              flexWrap: "nowrap", // Ensures items stay on one line
-            }}>
-              {items.map((item, index) => {
-                // Determine background and text color based on selected item
-                const isSelected = selectedItem === item;
-                const myBackgroudColor = isSelected ? "#A47864" : "white";
-                const myTextColor = isSelected ? "white" : "black"; // If selected, text color is wheat
-
-                return (
-                  <motion.li
-                    key={index}
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ type:'keyframes', stiffness: 100, duration: 2 }}
-                    style={{
-                      marginLeft: "10px",  // Adds space between items
-                      cursor: "pointer",
-                       // Change cursor to pointer when hovering
-                       fontSize:'22px'
-                    }}
-                    onClick={() => handleOnClick(item)} // Handle item click
-                  >
-                    <HomeOptions 
-                      text={item} 
-                      myBackgroudColor={myBackgroudColor} 
-                      myTextColor={myTextColor} 
-                    />
-                  </motion.li>
-                );
-              })}
-            </ul>
-          </div>
-        </div>
+              return (
+                <motion.li
+                  key={index}
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ type: 'keyframes', stiffness: 100, duration: 2 }}
+                  onClick={() => handleOnClick(item)} // Handle item click
+                >
+                  <HomeOptions 
+                    text={item} 
+                    myBackgroudColor={myBackgroudColor} 
+                    myTextColor={myTextColor} 
+                  />
+                </motion.li>
+              );
+            })}
+          </ul>
+        </ItemsListContainer>
 
         <Carousel />
-        <div style={{
-  position: "relative",
-  display: "flex",
-  alignItems: "center",       // Vertically centers the content
-  justifyContent: "center",   // Horizontally centers the content
-  height: "40px",             // Ensures the content is centered in the viewport
-  fontSize:"18px",
-  margin:'50px 20px'
-}}>
-<PaperText/>
-</div>
 
-        <ItemList/>
+        <PaperTextContainer>
+          <PaperText />
+        </PaperTextContainer>
 
-        <div>
-          <ShopItems searchItem={selectedItem}/>
-        </div>
+        <AnimatePresence>
+          <motion.div
+            ref={listRef}
+            initial={{ opacity: 0, y: 350 }}
+            animate={{
+              opacity: listInView ? 1 : 0,
+              y: listInView ? 0 : 250,
+              visibility: listInView ? 'visible' : 'hidden',
+            }}
+            exit={{
+              opacity: 0,
+              y: 500,
+              visibility: 'hidden',
+            }}
+            transition={{
+              type: 'keyframes',
+              stiffness: 300,
+              duration: 2,
+            }}
+          >
+            <ItemList />
+          </motion.div>
+        </AnimatePresence>
 
-        <div>
-          <ScrollAnimatedComponent/>
-        </div>
+        <AnimatePresence>
+          <motion.div
+            ref={shopRef}
+            initial={{ opacity: 0, y: 350 }}
+            animate={{
+              opacity: shopInView ? 1 : 0,
+              y: shopInView ? 0 : 250,
+              visibility: shopInView ? 'visible' : 'hidden',
+            }}
+            exit={{
+              opacity: 0,
+              y: 500,
+              visibility: 'hidden',
+            }}
+            transition={{
+              type: 'keyframes',
+              stiffness: 300,
+              duration: 2,
+            }}
+          >
+            <ShopItems searchItem={selectedItem} />
+          </motion.div>
+        </AnimatePresence>
 
-      </div>
+        <ScrollAnimatedComponent />
+      </Container>
     </>
   );
-}
+};
 
 export default HomePage;
+
+// Styled components for cleaner styling
+const Container = styled.div`
+  position: relative;
+  margin-top: 80px;
+`;
+
+const Title = styled.div`
+  position: relative;
+  display: flex;
+  font-size: 30px;
+  align-items: center;
+  justify-content: center;
+  height: 5vh;
+  font-family: 'DM Sans', sans-serif;
+  color: #333;
+  font-weight: bolder;
+`;
+
+const ItemsListContainer = styled.div`
+  position: relative;
+  padding: 10px;
+  margin: 10px;
+  overflow-x: scroll;
+  max-width: 100%;
+  padding-bottom: 10px;
+  scrollbar-width: none;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  li {
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 22px;
+  }
+`;
+
+const PaperTextContainer = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  font-size: 18px;
+  margin: 50px 20px;
+`;
+

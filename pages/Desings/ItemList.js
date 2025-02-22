@@ -1,10 +1,15 @@
 import React from 'react';
 import styles from '../../styles/listItem.module.css'; // Correct path to your CSS module
 import Image from 'next/image';
+import { useInView } from 'react-intersection-observer';
+import {motion} from 'framer-motion';
 
 const ItemList = () => {
     return (
-        <div className={styles.container}>
+        <motion.div className={styles.container} 
+                
+            
+        >
             <ul className={styles.listItems}>
                 <li>
                     <div className={styles.item}>
@@ -67,7 +72,7 @@ const ItemList = () => {
                     </div>
                 </li>
             </ul>    
-        </div>
+        </motion.div>
     );
 };
 
