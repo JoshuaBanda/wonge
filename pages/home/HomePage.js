@@ -145,11 +145,11 @@ const HomePage = () => {
             style={{
               position: 'relative',
               margin: '-30px 0px 150px 50px',
-              fontFamily: 'DM Sans, sans-serif',
-              color: '#333',
               textAlign: 'center',
               fontSize: '24px',
               fontWeight: 'bold',
+              fontFamily: 'DM Sans, sans-serif',
+              color: '#333',
             }}
           >
             Shopping made easy

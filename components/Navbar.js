@@ -5,7 +5,8 @@ import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { FaBarsProgress, FaBarsStaggered } from 'react-icons/fa6';
 
-// Animation variants for the sidebar links
+
+
 const linkVariants = {
   initial: { opacity: 0, x: -100 },
   animate: (i) => ({
@@ -127,7 +128,10 @@ function Navbar() {
 
       <div style={headingContainerStyles}>
       <div style={{
-        fontSize:'30px'
+        fontSize:'30px',
+              fontWeight: 'normal',
+              fontFamily: 'DM Sans, sans-serif',
+              color: '#666',
       }}>
         Wonge
       </div>
