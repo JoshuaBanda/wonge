@@ -11,15 +11,6 @@ const ScrollAnimatedComponent = () => {
 
   return (
     <motion.div
-      ref={ref} // Attach the ref to the motion.div
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
-      transition={{
-        type: 'keyframes',
-        stiffness: 100,
-        duration: 2,
-        delay: 0.5, // Optional: Add delay after the scroll triggers the animation
-      }}
       style={{
         position: 'relative',
         margin: '-30px 0px 150px 50px',

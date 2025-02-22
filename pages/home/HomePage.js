@@ -13,13 +13,16 @@ import styled from 'styled-components'; // Styled-components for cleaner styling
 
 const HomePage = () => {
   const { ref: listRef, inView: listInView } = useInView({
-    threshold: 0.5,
+    threshold: 0.4,
   });
 
   const { ref: shopRef, inView: shopInView } = useInView({
-    threshold: 0.5,
+    threshold: 0.3,
   });
 
+  const { ref: shopNowRef, inView: shopNowInView } = useInView({
+    threshold: 0.3,
+  });
   const items = ["Avon", "Earrings", "Brochus", 'Perfume'];
 
   // State to keep track of selected item
@@ -79,21 +82,21 @@ const HomePage = () => {
         <AnimatePresence>
           <motion.div
             ref={listRef}
-            initial={{ opacity: 0, y: 350 }}
+            initial={{ opacity: 0, y: 100 }}
             animate={{
               opacity: listInView ? 1 : 0,
-              y: listInView ? 0 : 250,
+              y: listInView ? 0 : 50,
               visibility: listInView ? 'visible' : 'hidden',
             }}
             exit={{
               opacity: 0,
-              y: 500,
+              y: 50,
               visibility: 'hidden',
             }}
             transition={{
               type: 'keyframes',
-              stiffness: 300,
-              duration: 2,
+              stiffness: 200,
+              duration: 1,
             }}
           >
             <ItemList />
@@ -103,15 +106,15 @@ const HomePage = () => {
         <AnimatePresence>
           <motion.div
             ref={shopRef}
-            initial={{ opacity: 0, y: 350 }}
+            initial={{ opacity: 0, y: 100 }}
             animate={{
               opacity: shopInView ? 1 : 0,
-              y: shopInView ? 0 : 250,
+              y: shopInView ? 0 : 50,
               visibility: shopInView ? 'visible' : 'hidden',
             }}
             exit={{
               opacity: 0,
-              y: 500,
+              y: 100,
               visibility: 'hidden',
             }}
             transition={{
@@ -124,7 +127,62 @@ const HomePage = () => {
           </motion.div>
         </AnimatePresence>
 
-        <ScrollAnimatedComponent />
+      <motion.div
+        
+        ref={shopNowRef}
+            initial={{ opacity: 0, y: 100 }}
+            animate={{
+              opacity: shopNowInView ? 1 : 0.2,
+              y: shopNowInView ? 0 : 50,
+              visibility: shopNowInView ? 'visible' : 'hidden',
+            }}
+            transition={{
+              type: 'keyframes',
+              stiffness: 300,
+              duration: 2,
+            }}
+
+            style={{
+              position: 'relative',
+              margin: '-30px 0px 150px 50px',
+              fontFamily: 'DM Sans, sans-serif',
+              color: '#333',
+              textAlign: 'center',
+              fontSize: '24px',
+              fontWeight: 'bold',
+            }}
+          >
+            Shopping made easy
+            <div
+              style={{
+                position: 'relative',
+                margin: '20px auto', // Center the button horizontally
+                width: '150px',
+                height: '45px',
+                borderRadius: '25px',
+                color: 'white',
+                backgroundColor: '#000', // Dark background
+                display: 'flex',
+                justifyContent: 'center', // Center the text inside button
+                alignItems: 'center', // Vertically center the text
+                cursor: 'pointer',
+                boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)', // Shadow for depth
+                transition: 'all 0.3s ease', // Smooth transition for hover effects
+                fontSize: '20px',
+              }}
+            >
+              <div
+                style={{
+                  position: 'relative',
+                  margin: '5px',
+                  fontSize: '16px',
+                  fontWeight: '600', // Slightly bolder text inside button
+                }}
+              >
+                Start Now
+              </div>
+            </div>
+          </motion.div>
       </Container>
     </>
   );
