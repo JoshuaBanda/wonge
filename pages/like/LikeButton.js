@@ -44,7 +44,6 @@ const LikeButton = ({ postId, userId, jwtToken, initialLikeCount, initialLikeSta
       setIsLiked(likeStatusResponse.data);
     } catch (error) {
       console.error("Error fetching like data:", error);
-      showErrorSnackbar("Failed to load like data. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -108,7 +107,8 @@ const LikeButton = ({ postId, userId, jwtToken, initialLikeCount, initialLikeSta
       {likeCount >= 0 && (
         <span style={{ position:'absolute',
           top:"190px",
-          right:'70px'
+          right:'70px',
+          fontSize:'14px'
          }}>
           <Rating likeCount={likeCount}/>
         </span>

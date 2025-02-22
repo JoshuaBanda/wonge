@@ -7,6 +7,7 @@ import axios from "axios";
 import ShopItems from "./ShopItems";
 import PaperText from "../Desings/PaperEdge";
 import SearchBox from "../Desings/SearchBox";
+import ScrollAnimatedComponent from "../Desings/ScrollableAnimatedComponent";
 
 const HomePage = () => {
   const items = ["Avon", "Earrings", "Brochus",'Perfume'];
@@ -49,6 +50,9 @@ const HomePage = () => {
           alignItems: "center",
           justifyContent: "center",  // Centers the text horizontally
           height: "5vh", // If you want to vertically center the text in the viewport
+          fontFamily: 'DM Sans, sans-serif',
+            color: '#333',
+            fontWeight:'bolder',
         }}>
           Find the best Cosmetics
         </div>
@@ -125,6 +129,11 @@ const HomePage = () => {
         <div>
           <ShopItems searchItem={selectedItem}/>
         </div>
+
+        <div>
+          <ScrollAnimatedComponent/>
+        </div>
+
       </div>
     </>
   );

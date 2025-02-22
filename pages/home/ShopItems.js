@@ -111,8 +111,12 @@ const ShopItems = ({ searchItem, jwtToken='1', post='', currentUserId, apiServic
       </div>
 
       <div className={styles.addToCart}>
-        <p>Add to cart</p>
-        <FaCartShopping style={{ position: 'relative', color: ' #A47864', marginLeft: '5px' }} />
+        <p style={{
+          
+          fontFamily: 'DM Sans, sans-serif',
+            fontWeight:'lighter',
+        }}>Add to cart</p>
+        <FaCartShopping style={{ position: 'relative', color: 'black', marginLeft: '5px' }} />
       </div>
     </div>
   ));
@@ -120,8 +124,13 @@ const ShopItems = ({ searchItem, jwtToken='1', post='', currentUserId, apiServic
   return (
     <>
       <div>
-        <span className={styles.motivationcaute}>
-          At Wonge Enterprise, we’ve got exactly what you’re looking for! Searching for {searchItem} products? We’ve got you covered—find the perfect fit for you today.
+        <span className={styles.motivationcaute} style={{
+          
+          fontFamily: 'DM Sans, sans-serif',
+            color: '#333',
+            fontWeight:'normal',
+        }}>
+          At Wonge Enterprise, we’ve got exactly what you’re looking for! Searching for {searchItem} products? We’ve got you covered, find the perfect fit for you today.
         </span>
       </div>
 
@@ -141,8 +150,6 @@ const ShopItems = ({ searchItem, jwtToken='1', post='', currentUserId, apiServic
         {homeItems.length > 0 ? homeItems : <div style={{position:'relative',margin:'40px auto',}}><Spinner /></div> }
       </div>
 
-      {/* Show error message if there's an error */}
-      {errorMessage && <p style={{ color: "red", textAlign: "center" }}>{errorMessage}</p>}
     </>
   );
 };
