@@ -55,6 +55,14 @@ const Carousel = () => {
           </div>
         ))}
       </div>
+
+      {/* Optional: Add navigation buttons */}
+      <button className={styles.prevBtn} onClick={prevSlide}>
+        &lt;
+      </button>
+      <button className={styles.nextBtn} onClick={nextSlide}>
+        &gt;
+      </button>
     </div>
   );
 };
