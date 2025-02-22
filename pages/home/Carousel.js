@@ -17,7 +17,7 @@ const Carousel = () => {
     "/lotion.jpg",
   ];
   
-
+/*
   const totalItems = images.length;
 
   const nextSlide = () => {
@@ -28,11 +28,11 @@ const Carousel = () => {
     setCurrentIndex(
       (prevIndex) => (prevIndex - 1 + totalItems) % totalItems
     );
-  };
+  };*/
 
   // Auto slide functionality (optional)
   useEffect(() => {
-    const interval = setInterval(nextSlide, 3000); // Slide every 3 seconds
+    const interval = setInterval(nextSlide, 6000); // Slide every 3 seconds
 
     return () => clearInterval(interval); // Cleanup the interval on unmount
   }, []);
@@ -55,14 +55,6 @@ const Carousel = () => {
           </div>
         ))}
       </div>
-
-      {/* Optional: Add navigation buttons */}
-      <button className={styles.prevBtn} onClick={prevSlide}>
-        &lt;
-      </button>
-      <button className={styles.nextBtn} onClick={nextSlide}>
-        &gt;
-      </button>
     </div>
   );
 };

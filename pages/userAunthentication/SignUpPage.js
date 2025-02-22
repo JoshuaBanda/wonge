@@ -71,10 +71,10 @@ const SignUpPage = () => {
             style={{
               position: "relative",
               height: "650px",
-              width: "75%", // Ensure container width is proportionate
+              width: "95%", // Ensure container width is proportionate
               maxWidth: "500px", // Optional max-width
               margin: "auto",
-              border: "1px solid white",
+              border: "1px solid rgba(255,255,255,0.4)",
               backgroundColor: "rgba(0,0,0, 0.6)", // Light white overlay
               display: "flex",
               flexDirection: "column",

@@ -162,7 +162,6 @@ const CreateAccountPage = () => {
                 border: "1px solid #ddd",
                 borderRadius: "50px",
                 fontSize: "16px",
-                backgroundColor: "rgba(255,255,255,0.5)",
                 border: "1px solid grey",
                 color: "rgba(0, 0, 0, 0.7)",
               }}
@@ -197,7 +196,6 @@ const CreateAccountPage = () => {
                 border: "1px solid #ddd",
                 borderRadius: "50px",
                 fontSize: "16px",
-                backgroundColor: "rgba(255,255,255,0.5)",
                 border: "1px solid grey",
                 color: "rgba(0, 0, 0, 0.7)",
               }}
@@ -232,9 +230,8 @@ const CreateAccountPage = () => {
                 border: "1px solid #ddd",
                 borderRadius: "50px",
                 fontSize: "16px",
-                backgroundColor: "rgba(255,255,255,0.5)",
                 border: "1px solid grey",
-                color: "rgba(0, 0, 0, 0.7)",
+                color: "white",
               }}
             />
 
@@ -265,9 +262,8 @@ const CreateAccountPage = () => {
                 border: "1px solid #ddd",
                 borderRadius: "50px",
                 fontSize: "16px",
-                backgroundColor: "rgba(255,255,255,0.5)",
                 border: "1px solid grey",
-                color: "rgba(0, 0, 0, 0.7)",
+                color: "rgb(255, 255, 255)",
               }}
             >
               <option value="male">Male</option>
@@ -302,9 +298,8 @@ const CreateAccountPage = () => {
                 border: "1px solid #ddd",
                 borderRadius: "50px",
                 fontSize: "16px",
-                backgroundColor: "rgba(255,255,255,0.5)",
                 border: "1px solid grey",
-                color: "rgba(0, 0, 0, 0.7)",
+                color: "rgba(255, 255, 255, 0.7)",
               }}
             />
 
