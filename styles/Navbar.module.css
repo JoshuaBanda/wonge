@@ -1,0 +1,29 @@
+.rightCornerDecolation {
+    color: blue;
+    position: absolute;
+    top: 0;
+    right: 10%;
+    width: 50%;
+    height: 150px;
+    background-color: #A47864;
+    border-bottom-left-radius: 100%;
+    transform-origin: top right; /* Rotate around the top-right corner */
+}
+
+.rightSecCornerDecolation {
+    color: blue;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30%;
+    height: 250px;
+    background-color: #A47864;
+    border-bottom-left-radius: 100%;
+    transform-origin: top right; /* Rotate around the top-right corner */
+}
+.navImage{
+    position: absolute;
+    top:80px;right: 20%;
+    border: 5px solid white;
+    border-radius: 50%;
+}
