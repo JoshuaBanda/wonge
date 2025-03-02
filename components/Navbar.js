@@ -9,7 +9,9 @@ function Navbar(){
   const navMenu=navItems.map((item,index)=>{
     return(
       <>
-        <li key={index}>
+        <li key={index} style={{
+          
+        }}>
           {item}
         </li>
       </>

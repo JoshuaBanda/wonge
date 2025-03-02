@@ -56,11 +56,37 @@
     display: block;
     padding-left: 20px;
 }
-
-.menu li{
+.menu li {
     position: relative;
     float: left;
     margin: 2px;
     list-style: none;
     font-size: 14px;
+    padding: 10px 15px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.2); /* More transparent background */
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    box-shadow: inset 0px 0px 8px 2px rgba(255, 255, 255, 0.7), 
+                inset 0px 0px 3px 1px rgba(0, 0, 0, 0.5),
+                0px 4px 15px rgba(0, 0, 0, 0.4); /* Added outer glow */
+    backdrop-filter: blur(15px) saturate(180%) contrast(120%); /* Stronger blur and contrast */
+    -webkit-backdrop-filter: blur(15px) saturate(180%) contrast(120%); /* For Safari compatibility */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
 }
+
+.menu li:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    background: rgba(255, 255, 255, 0.3); /* Lighter background on hover */
+    box-shadow: inset 0px 0px 10px 3px rgba(255, 255, 255, 0.8), 
+                inset 0px 0px 5px 2px rgba(0, 0, 0, 0.4),
+                0px 8px 20px rgba(0, 0, 0, 0.6); /* Stronger outer shadow on hover */
+    transform: translateY(-3px); /* Lift effect on hover */
+}
+
+.menu li:active {
+    transform: scale(0.98); /* Slight shrink when clicked */
+    box-shadow: inset 0px 0px 10px 3px rgba(255, 255, 255, 0.8), 
+                inset 0px 0px 5px 2px rgba(0, 0, 0, 0.6),
+                0px 6px 15px rgba(0, 0, 0, 0.5); /* Maintain a strong shadow when clicked */
+}
+
