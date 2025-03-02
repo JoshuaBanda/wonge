@@ -1,50 +1,50 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import style from '../styles/Navbar.module.css';
 import Image from 'next/image';
-function Navbar(){
-  const [menuItem,setMenuItem]=useState('');
 
-  const navItems=['brochus','avon lotion','earrings'];
+function Navbar() {
+  const [menuItem, setMenuItem] = useState('');
+  const navItems = ['brochus', 'avon lotion', 'earrings'];
 
-  const navMenu=navItems.map((item,index)=>{
-    return(
-      <>
-        <li key={index} style={{  
-        }}>
-        {(index==0)?(
-          <div>
-          {item}
-          </div>
-        ):(
-          <div style={{color:'white'}}>
-          {item}
-          </div>
-        )}
-        </li>
-      </>
-    );
-  })
-  return(
+  const handleOnClick = (e) => {
+    const selectedItem = e.target.innerText;
+    setMenuItem(selectedItem);
+    console.log(selectedItem); // Log the item immediately
+  };
+
+  useEffect(() => {
+    if (menuItem) {
+      console.log('Updated menuItem:', menuItem); // Log the updated value
+    }
+  }, [menuItem]); // Runs whenever menuItem changes
+
+  const navMenu = navItems.map((item, index) => (
+    <li key={index} onClick={handleOnClick}>
+      <div style={{ color: index === 0 ? 'black' : 'white' }}>
+        {item}
+      </div>
+    </li>
+  ));
+
+  return (
     <>
       <div className={style.container}>
-        {/*headings*/}
+        {/* Headings */}
         <div className={style.heading}>
-            
-          {/*name of website*/}
-          <span className={style.name}>
-            Wonge
-          </span>
-          {/*menu*/}
+          {/* Name of website */}
+          <span className={style.name}>Wonge</span>
+
+          {/* Menu */}
           <div>
             <ul className={style.menu}>
               {navMenu}
             </ul>
           </div>
         </div>
-        <div className={style.rightCornerDecolation}>
-        </div>
-        <div className={style.rightSecCornerDecolation}>
-        </div>
+
+        <div className={style.rightCornerDecolation}></div>
+        <div className={style.rightSecCornerDecolation}></div>
+
         <div>
           <Image
             src='/wonge1.jpg'
@@ -57,6 +57,7 @@ function Navbar(){
         </div>
       </div>
     </>
-  )
-};
+  );
+}
+
 export default Navbar;
