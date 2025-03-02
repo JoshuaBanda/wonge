@@ -9,10 +9,17 @@ function Navbar(){
   const navMenu=navItems.map((item,index)=>{
     return(
       <>
-        <li key={index} style={{
-          
+        <li key={index} style={{  
         }}>
+        {(index==0)?(
+          <div>
           {item}
+          </div>
+        ):(
+          <div style={{color:'white'}}>
+          {item}
+          </div>
+        )}
         </li>
       </>
     );
