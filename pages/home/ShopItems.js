@@ -123,21 +123,11 @@ const ShopItems = ({ searchItem, jwtToken='1', post='', currentUserId, apiServic
 
   return (
     <>
-      <div>
-        <span className={styles.motivationcaute} style={{
-          
-          fontFamily: 'DM Sans, sans-serif',
-            color: '#333',
-            fontWeight:'normal',
-        }}>
-          At Wonge Enterprise, we’ve got exactly what you’re looking for! Searching for {searchItem} products? We’ve got you covered, find the perfect fit for you today.
-        </span>
-      </div>
 
       <div
         style={{
           position: "relative",
-          margin: "0px 10px 100px 10px",
+          margin: "0px 10px 10px 10px",
           display: "flex",
           overflowX: "auto", // Allows horizontal scrolling
           flexWrap: "nowrap", // Prevents wrapping

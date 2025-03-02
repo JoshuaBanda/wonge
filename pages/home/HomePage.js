@@ -43,15 +43,16 @@ const HomePage = () => {
   return (
     <>
       <div className={styles.container}>
+        <SearchBox />
 
         <div className={styles.title}>Find the best Cosmetics</div>
-        
+
         <div className={styles.itemsListContainer}>
           <ul>
             {items.map((item, index) => {
               const isSelected = selectedItem === item;
-              const myBackgroudColor = isSelected ? "#A47864" : "white";
-              const myTextColor = isSelected ? "white" : "black";
+              const myBackgroudColor = isSelected ? "orange" : "white";
+              const myTextColor = isSelected ? "white" : "orange";
 
               return (
                 <motion.li
@@ -141,10 +142,12 @@ const HomePage = () => {
           }}
           style={{
             position: 'relative',
-            margin: '-50px 0px 150px 0px',
+            margin: '0px 0px 50px 0px',
+            bottom:'50px',
             textAlign: 'center',
             fontSize: '24px',
             fontWeight: 'bold',
+            fontFamily: 'DM Sans, sans-serif',
             color: '#333',
           }}
         >

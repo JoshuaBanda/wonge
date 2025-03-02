@@ -5,10 +5,9 @@
     color:#333;
     display: flex;
     z-index: 100;
-    border: 1px solid white;
     height: 150px;
     width: 100%;
-    background-color: white;
+    
 }
 .rightCornerDecolation {
     position:fixed;
@@ -48,6 +47,11 @@
     margin: 5px;
     font-size: 20px;
     font-weight: normal;
+    background-color: white;
+    height: 40px;
+    width: 65px;
+    padding: 5px;
+    border-radius: 20px;
 }
 
 .menu{
