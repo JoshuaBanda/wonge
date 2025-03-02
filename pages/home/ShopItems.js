@@ -93,7 +93,7 @@ const ShopItems = ({ searchItem, jwtToken='1', post='', currentUserId, apiServic
       )}
       
       <div className={styles.txt}>
-        <h3 style={{ height: '40px' }}>
+        <h3 style={{ height: '20px' }}>
           {checkNameLength(item.name) ? item.name : `${item.name.slice(0, 10)}...`}  {/* Truncate if name is too long */}
         </h3>
         

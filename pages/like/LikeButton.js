@@ -121,7 +121,7 @@ const LikeButton = ({ postId, userId, jwtToken, initialLikeCount, initialLikeSta
             background: 'none',
             border: 'none',
             cursor: isLoading ? 'not-allowed' : 'pointer',
-            color: isLiked ? 'black' : '#888',
+            color: isLiked ? 'orange' : '#888',
             overflow:'hidden'
           }}
         >

@@ -18,16 +18,16 @@ const Rating = ({likeCount}) => {
                     }}>
                         
                     <FaRegStar style={{
-                        color:"black"
+                        color:"orange"
                     }}/>
                     <FaRegStar style={{
-                        color:"black"
+                        color:"orange"
                     }}/>
                     <FaRegStar style={{
-                        color:"black"
+                        color:"orange"
                     }}/>
                     <FaRegStar style={{
-                        color:"black"
+                        color:"orange"
                     }}/>
                     </div>
                 </>
@@ -39,16 +39,16 @@ const Rating = ({likeCount}) => {
                     display:'flex',
                 }}>
                     <FaStar style={{
-                        color:"black"
+                        color:"orange"
                     }}/>
                     <FaRegStar style={{
-                        color:"black"
+                        color:"orange"
                     }}/>
                     <FaRegStar style={{
-                        color:"black"
+                        color:"orange"
                     }}/>
                     <FaRegStar style={{
-                        color:"black"
+                        color:"orange"
                     }}/>
                 </div>
             )
@@ -60,16 +60,16 @@ const Rating = ({likeCount}) => {
                     display:'flex',
                 }}>
                     <FaStar style={{
-                        color:"black"
+                        color:"orange"
                     }}/>
                     <FaStar style={{
-                        color:"black"
+                        color:"orange"
                     }}/>
                     <FaRegStarHalfStroke style={{
-                        color:"black"
+                        color:"orange"
                     }}/>
                     <FaRegStar style={{
-                        color:"black"
+                        color:"orange"
                     }}/>
                 </div>
             )
