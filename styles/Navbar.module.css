@@ -5,12 +5,16 @@
     color:#333;
     display: flex;
     z-index: 100;
+    border: 1px solid white;
+    height: 150px;
+    width: 100%;
+    background-color: white;
 }
 .rightCornerDecolation {
     position:fixed;
     top: 0;
     right: 10%;
-    width: 50%;
+    width: 40%;
     height: 150px;
     background-color: #A47864;
     border-bottom-left-radius: 100%;
@@ -20,14 +24,14 @@
     position: fixed;
     top: 0;
     right: 0;
-    width: 30%;
-    height: 250px;
+    width: 25%;
+    height: 180px;
     background-color: #A47864;
     border-bottom-left-radius: 100%;
 }
 .navImage{
     position: fixed;
-    top:80px;right: 20%;
+    top:80px;right: 12%;
     border: 5px solid white;
     border-radius: 50%;
 }
@@ -37,21 +41,20 @@
     margin: 0px;
     display: flex;
     z-index: 100;
-    padding-right: 1px;
+    padding-right: 0px;
 }
 .name{
     height: 100px;
     margin: 2px;
-    font-size: 40px;
+    font-size: 20px;
     font-weight: normal;
 }
 
 .menu{
     position: relative;
-    border: 1px solid black;
     height: 200px;
     display: block;
-    padding: 0px;
+    padding-left: 20px;
 }
 
 .menu li{
