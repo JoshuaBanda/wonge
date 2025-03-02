@@ -9,7 +9,7 @@ import PaperText from "../Desings/PaperEdge";
 import SearchBox from "../Desings/SearchBox";
 import ScrollAnimatedComponent from "../Desings/ScrollableAnimatedComponent";
 import { useInView } from "react-intersection-observer";
-import styled from 'styled-components'; // Styled-components for cleaner styling
+import styles from '../../styles/HomePage.module.css' ; 
 
 const HomePage = () => {
   const { ref: listRef, inView: listInView } = useInView({
@@ -42,12 +42,11 @@ const HomePage = () => {
 
   return (
     <>
-      <Container>
-        <SearchBox />
+      <div className={styles.container}>
 
-        <Title>Find the best Cosmetics</Title>
-
-        <ItemsListContainer>
+        <div className={styles.title}>Find the best Cosmetics</div>
+        
+        <div className={styles.itemsListContainer}>
           <ul>
             {items.map((item, index) => {
               const isSelected = selectedItem === item;
@@ -71,13 +70,13 @@ const HomePage = () => {
               );
             })}
           </ul>
-        </ItemsListContainer>
+        </div>
 
         <Carousel />
 
-        <PaperTextContainer>
+        <div className={styles.paperTextContainer}>
           <PaperText />
-        </PaperTextContainer>
+        </div>
 
         <AnimatePresence>
           <motion.div
@@ -127,118 +126,62 @@ const HomePage = () => {
           </motion.div>
         </AnimatePresence>
 
-      <motion.div
-        
-        ref={shopNowRef}
-            initial={{ opacity: 0, y: 100 }}
-            animate={{
-              opacity: shopNowInView ? 1 : 0.2,
-              y: shopNowInView ? 0 : 50,
-              visibility: shopNowInView ? 'visible' : 'hidden',
-            }}
-            transition={{
-              type: 'keyframes',
-              stiffness: 300,
-              duration: 2,
-            }}
-
+        <motion.div
+          ref={shopNowRef}
+          initial={{ opacity: 0, y: 100 }}
+          animate={{
+            opacity: shopNowInView ? 1 : 0.2,
+            y: shopNowInView ? 0 : 50,
+            visibility: shopNowInView ? 'visible' : 'hidden',
+          }}
+          transition={{
+            type: 'keyframes',
+            stiffness: 300,
+            duration: 2,
+          }}
+          style={{
+            position: 'relative',
+            margin: '-50px 0px 150px 0px',
+            textAlign: 'center',
+            fontSize: '24px',
+            fontWeight: 'bold',
+            color: '#333',
+          }}
+        >
+          Shopping made easy
+          <div
             style={{
               position: 'relative',
-              margin: '-50px 0px 150px 0px',
-              textAlign: 'center',
-              fontSize: '24px',
-              fontWeight: 'bold',
-              fontFamily: 'DM Sans, sans-serif',
-              color: '#333',
+              margin: '20px auto', // Center the button horizontally
+              width: '150px',
+              height: '45px',
+              borderRadius: '25px',
+              color: 'white',
+              backgroundColor: '#000', // Dark background
+              display: 'flex',
+              justifyContent: 'center', // Center the text inside button
+              alignItems: 'center', // Vertically center the text
+              cursor: 'pointer',
+              boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)', // Shadow for depth
+              transition: 'all 0.3s ease', // Smooth transition for hover effects
+              fontSize: '20px',
             }}
           >
-            Shopping made easy
             <div
               style={{
                 position: 'relative',
-                margin: '20px auto', // Center the button horizontally
-                width: '150px',
-                height: '45px',
-                borderRadius: '25px',
-                color: 'white',
-                backgroundColor: '#000', // Dark background
-                display: 'flex',
-                justifyContent: 'center', // Center the text inside button
-                alignItems: 'center', // Vertically center the text
-                cursor: 'pointer',
-                boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)', // Shadow for depth
-                transition: 'all 0.3s ease', // Smooth transition for hover effects
-                fontSize: '20px',
+                margin: '5px',
+                fontSize: '16px',
+                fontWeight: '600', // Slightly bolder text inside button
               }}
             >
-              <div
-                style={{
-                  position: 'relative',
-                  margin: '5px',
-                  fontSize: '16px',
-                  fontWeight: '600', // Slightly bolder text inside button
-                }}
-              >
-                Start Now
-              </div>
+              Start Now
             </div>
-          </motion.div>
-      </Container>
+          </div>
+        </motion.div>
+      </div>
     </>
   );
 };
 
 export default HomePage;
-
-// Styled components for cleaner styling
-const Container = styled.div`
-  position: relative;
-  margin-top: 80px;
-`;
-
-const Title = styled.div`
-  position: relative;
-  display: flex;
-  font-size: 30px;
-  align-items: center;
-  justify-content: center;
-  height: 5vh;
-  font-family: 'DM Sans', sans-serif;
-  color: #333;
-  font-weight: bolder;
-`;
-
-const ItemsListContainer = styled.div`
-  position: relative;
-  padding: 10px;
-  margin: 10px;
-  overflow-x: scroll;
-  max-width: 100%;
-  padding-bottom: 10px;
-  scrollbar-width: none;
-
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-wrap: nowrap;
-  }
-
-  li {
-    margin-left: 10px;
-    cursor: pointer;
-    font-size: 22px;
-  }
-`;
-
-const PaperTextContainer = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 40px;
-  font-size: 18px;
-  margin: 50px 20px;
-`;
-

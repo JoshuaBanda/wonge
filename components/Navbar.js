@@ -1,18 +1,40 @@
+import { useState } from 'react';
 import style from '../styles/Navbar.module.css';
 import Image from 'next/image';
 function Navbar(){
+  const [menuItem,setMenuItem]=useState('');
+
+  const navItems=['brochus','avon lotion','earrings'];
+
+  const navMenu=navItems.map((item,index)=>{
+    return(
+      <>
+        <li key={index}>
+          {item}
+        </li>
+      </>
+    );
+  })
   return(
     <>
       <div className={style.container}>
-        
-        {/*name of website*/}
-        <span>
-        </span>
+        {/*headings*/}
+        <div className={style.heading}>
+            
+          {/*name of website*/}
+          <span className={style.name}>
+            Wonge
+          </span>
+          {/*menu*/}
+          <div>
+            <ul className={style.menu}>
+              {navMenu}
+            </ul>
+          </div>
+        </div>
         <div className={style.rightCornerDecolation}>
-          hi
         </div>
         <div className={style.rightSecCornerDecolation}>
-          hi
         </div>
         <div>
           <Image
