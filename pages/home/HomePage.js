@@ -13,11 +13,11 @@ import styles from '../../styles/HomePage.module.css' ;
 
 const HomePage = () => {
   const { ref: listRef, inView: listInView } = useInView({
-    threshold: 0.4,
+    threshold: 0.6,
   });
 
   const { ref: shopRef, inView: shopInView } = useInView({
-    threshold: 0.3,
+    threshold: 0.5,
   });
 
   const { ref: shopNowRef, inView: shopNowInView } = useInView({
@@ -88,11 +88,6 @@ const HomePage = () => {
               y: listInView ? 0 : 50,
               visibility: listInView ? 'visible' : 'hidden',
             }}
-            exit={{
-              opacity: 0,
-              y: 50,
-              visibility: 'hidden',
-            }}
             transition={{
               type: 'keyframes',
               stiffness: 200,
@@ -114,7 +109,7 @@ const HomePage = () => {
             }}
             exit={{
               opacity: 0,
-              y: 100,
+              y: 0,
               visibility: 'hidden',
             }}
             transition={{

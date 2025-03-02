@@ -30,7 +30,7 @@
 }
 .navImage{
     position: fixed;
-    top:80px;right: 12%;
+    top:80px;right: 10%;
     border: 5px solid white;
     border-radius: 50%;
 }

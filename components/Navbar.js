@@ -47,10 +47,10 @@ function Navbar() {
 
         <div>
           <Image
-            src='/wonge1.jpg'
-            alt='wonge'
+            src='/wonge6.jpg'
+            alt='wonge6'
             width={100} // Adjust width as needed
-            height={100} // Adjust height as needed
+            height={80} // Adjust height as needed
             quality={100}
             className={style.navImage}
           />
