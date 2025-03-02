@@ -94,3 +94,54 @@
                 0px 6px 15px rgba(0, 0, 0, 0.5); /* Maintain a strong shadow when clicked */
 }
 
+
+
+.flower1 {
+    position: fixed;
+    top: 50px;
+    left: 0px;
+    width: 0;
+    height: 0;
+    border-bottom: 20px solid transparent; /* Half the width of the triangle */
+    border-right: 25px solid transparent; /* Half the width of the triangle */
+    border-bottom: 50px solid orange; /* The color and size of the triangle */
+    z-index: -100;
+  }
+  
+.flower2 {
+    position: fixed;
+    top: 80px;
+    left: 0px;
+    width: 0;
+    height: 0;
+    border-top: 25px solid transparent; /* Half the width of the triangle */
+    border-right: 25px solid transparent; /* Half the width of the triangle */
+    border-bottom: 50px solid orange; /* The color and size of the triangle */
+    z-index: -100;
+  }
+  
+.flower3 {
+    position: fixed;
+    top: 100px;
+    left: 0px;
+    width: 0;
+    height: 0;
+    border-bottom: 25px solid transparent; /* Half the width of the triangle */
+    border-right: 25px solid transparent; /* Half the width of the triangle */
+    border-top: 50px solid orange; /* The color and size of the triangle */
+    z-index: -100;
+  }
+  
+.flower4 {
+    position: fixed;
+    top: 155px;
+    left: 0px;
+    width: 0;
+    height: 0;
+    border-top: 25px solid transparent; /* Half the width of the triangle */
+    border-right: 25px solid transparent; /* Half the width of the triangle */
+    border-top: 50px solid orange; /* The color and size of the triangle */
+    z-index: -100;
+  }
+  
+  

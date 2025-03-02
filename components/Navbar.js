@@ -44,13 +44,16 @@ function Navbar() {
 
         <div className={style.rightCornerDecolation}></div>
         <div className={style.rightSecCornerDecolation}></div>
-
+        <div className={style.flower1}></div>
+        <div className={style.flower2}></div>
+        <div className={style.flower3}></div>
+        <div className={style.flower4}></div>
         <div>
           <Image
             src='/wonge6.jpg'
             alt='wonge6'
             width={100} // Adjust width as needed
-            height={80} // Adjust height as needed
+            height={100} // Adjust height as needed
             quality={100}
             className={style.navImage}
           />
