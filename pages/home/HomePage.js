@@ -72,9 +72,9 @@ const HomePage = () => {
             })}
           </ul>
         </div>
-
+        {/*  
         <Carousel />
-
+*/}
         <div className={styles.paperTextContainer}>
           <PaperText />
         </div>

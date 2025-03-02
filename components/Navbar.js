@@ -58,6 +58,7 @@ function Navbar() {
             className={style.navImage}
           />
         </div>
+          
       </div>
     </>
   );
