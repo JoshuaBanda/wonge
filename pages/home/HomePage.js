@@ -17,7 +17,7 @@ const HomePage = () => {
   });
 
   const { ref: shopRef, inView: shopInView } = useInView({
-    threshold: 0.5,
+    threshold: 0.4,
   });
 
   const { ref: shopNowRef, inView: shopNowInView } = useInView({

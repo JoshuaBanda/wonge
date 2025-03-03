@@ -37,7 +37,7 @@
     width: 100px;
     border: 1px solid white;
     padding: 0px;
-    border-top-left-radius: 8px;
+    border-radius: 35px;
     border-top-right-radius: 8px;
     overflow: hidden;
     margin-bottom: 10px; /* Adds space between image and text */

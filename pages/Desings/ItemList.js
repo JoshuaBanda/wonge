@@ -45,7 +45,7 @@ const ItemList = () => {
                     <div className={styles.item}>
                         <div className={styles.photoContainer}>
                             <Image
-                                src='/earring.jpg'
+                                src='/earring2.jpg'
                                 alt='Earrings'
                                 layout='fill'
                                 quality={80}
@@ -68,7 +68,7 @@ const ItemList = () => {
                                 style={{ objectFit: 'cover' }} // Ensures the image covers the container
                             />
                         </div>
-                        <p>Bronchus</p>
+                        <p>Brochures</p>
                     </div>
                 </li>
             </ul>    
