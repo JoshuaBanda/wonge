@@ -51,8 +51,8 @@ const HomePage = () => {
           <ul>
             {items.map((item, index) => {
               const isSelected = selectedItem === item;
-              const myBackgroudColor = isSelected ? "orange" : "white";
-              const myTextColor = isSelected ? "white" : "orange";
+              const myBackgroudColor = isSelected ? "wheat" : "white";
+              const myTextColor = isSelected ? "sienna" : "sienna";
 
               return (
                 <motion.li
@@ -150,12 +150,12 @@ const HomePage = () => {
           <div
             style={{
               position: 'relative',
-              margin: '20px auto', // Center the button horizontally
+              margin: '20px auto', 
               width: '150px',
               height: '45px',
               borderRadius: '25px',
-              color: 'white',
-              backgroundColor: '#000', // Dark background
+              color: 'sienna',
+              backgroundColor: 'wheat', 
               display: 'flex',
               justifyContent: 'center', // Center the text inside button
               alignItems: 'center', // Vertically center the text

@@ -77,8 +77,8 @@ const ShopItems = ({ searchItem, jwtToken='1', post='', currentUserId, apiServic
           <Image
             src={item.photo_url} // Use the photo_url from the API
             alt={item.name}
-            width={150} // Adjust width as needed
-            height={150} // Adjust height as needed
+            width={80} // Adjust width as needed
+            height={80} // Adjust height as needed
             style={{ borderRadius: "0px", marginBottom: "0px" }}
             className={styles.pic}
           />

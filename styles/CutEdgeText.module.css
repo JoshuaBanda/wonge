@@ -1,19 +1,18 @@
 .paperWrapper {
+  position: static;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 30px;
-    margin: 10px;
+    height: 25px;
+    margin: 1px;
   }
   
   .cutEdgeText {
     font-family: 'Courier New', monospace; /* Paper-like, non-serif font */
     font-size: 20px;
     padding: 10px 10px 25px 20px;
-    background-color: black;
+    background-color: wheat;
     position: relative;
     overflow: hidden;
-    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
     border-radius: 1px;
     z-index: 1;
     transform: skew(-5deg, -3deg); /* Slight skew to enhance hand-cut look */

@@ -55,7 +55,9 @@
 }
 
 .menu{
-    position: relative;
+    position: fixed;
+    top:0px;
+    right: 1%;
     height: 30px;
     display: block;
     padding-left: 0px;

@@ -55,7 +55,7 @@ const SearchBox = () => {
                             border: "none",
                             borderTopRightRadius: "30px",
                             borderBottomRightRadius: "30px",
-                            color: "orange",
+                            color: "sienna",
                             padding: "10px 15px",
                             cursor: "pointer",
                             fontSize: "16px",

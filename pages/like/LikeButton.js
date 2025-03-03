@@ -106,9 +106,9 @@ const LikeButton = ({ postId, userId, jwtToken, initialLikeCount, initialLikeSta
     <div style={{ display: 'flex', alignItems: 'center' }}>
       {likeCount >= 0 && (
         <span style={{ position:'absolute',
-          top:"190px",
-          right:'70px',
-          fontSize:'14px'
+          top:"120px",
+          right:'40px',
+          fontSize:'10px'
          }}>
           <Rating likeCount={likeCount}/>
         </span>
@@ -121,7 +121,7 @@ const LikeButton = ({ postId, userId, jwtToken, initialLikeCount, initialLikeSta
             background: 'none',
             border: 'none',
             cursor: isLoading ? 'not-allowed' : 'pointer',
-            color: isLiked ? 'orange' : '#888',
+            color: isLiked ? 'sienna' : '#888',
             overflow:'hidden'
           }}
         >

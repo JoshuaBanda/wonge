@@ -18,16 +18,16 @@ const Rating = ({likeCount}) => {
                     }}>
                         
                     <FaRegStar style={{
-                        color:"orange"
+                        color:"sienna"
                     }}/>
                     <FaRegStar style={{
-                        color:"orange"
+                        color:"sienna"
                     }}/>
                     <FaRegStar style={{
-                        color:"orange"
+                        color:"sienna"
                     }}/>
                     <FaRegStar style={{
-                        color:"orange"
+                        color:"sienna"
                     }}/>
                     </div>
                 </>
@@ -39,16 +39,16 @@ const Rating = ({likeCount}) => {
                     display:'flex',
                 }}>
                     <FaStar style={{
-                        color:"orange"
+                        color:"sienna"
                     }}/>
                     <FaRegStar style={{
-                        color:"orange"
+                        color:"sienna"
                     }}/>
                     <FaRegStar style={{
-                        color:"orange"
+                        color:"sienna"
                     }}/>
                     <FaRegStar style={{
-                        color:"orange"
+                        color:"sienna"
                     }}/>
                 </div>
             )
@@ -60,16 +60,16 @@ const Rating = ({likeCount}) => {
                     display:'flex',
                 }}>
                     <FaStar style={{
-                        color:"orange"
+                        color:"sienna"
                     }}/>
                     <FaStar style={{
-                        color:"orange"
+                        color:"sienna"
                     }}/>
                     <FaRegStarHalfStroke style={{
-                        color:"orange"
+                        color:"sienna"
                     }}/>
                     <FaRegStar style={{
-                        color:"orange"
+                        color:"sienna"
                     }}/>
                 </div>
             )

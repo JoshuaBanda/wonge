@@ -4,7 +4,7 @@ import styles from '../../styles/CutEdgeText.module.css'; // Import the CSS Modu
 function CutEdgeText() {
   return (
     <div className={styles.paperWrapper}>
-      <p className={styles.cutEdgeText} style={{color:'white'}}>
+      <p className={styles.cutEdgeText} style={{color:'sienna'}}>
         View
       </p>
     </div>
