@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 function Navbar() {
   const [menuItem, setMenuItem] = useState('');
-  const navItems = ['brochus', 'avon lotion', 'earrings'];
+  const navItems = ['Items', 'uploads', 'sign up'];
 
   const handleOnClick = (e) => {
     const selectedItem = e.target.innerText;
@@ -20,7 +20,7 @@ function Navbar() {
 
   const navMenu = navItems.map((item, index) => (
     <li key={index} onClick={handleOnClick}>
-      <div style={{ color: index === 0 ? 'black' : 'white' }}>
+      <div>
         {item}
       </div>
     </li>
@@ -41,7 +41,7 @@ function Navbar() {
             </ul>
           </div>
         </div>
-
+{/*
         <div className={style.rightCornerDecolation}></div>
         <div className={style.rightSecCornerDecolation}></div>
         <div className={style.flower1}></div>
@@ -58,7 +58,7 @@ function Navbar() {
             className={style.navImage}
           />
         </div>
-          
+*/}
       </div>
     </>
   );
