@@ -8,7 +8,7 @@
     position: relative;
     list-style: none;
     float: left; /* Floats items to the left */
-    margin-right: 12px; /* Adds space between items */
+    margin-left: 40px; /* Adds space between items */
     margin-bottom: 10px;
 }
 
@@ -33,8 +33,8 @@
 
 .photoContainer {
     position: relative;
-    height: 100px;
-    width: 130px;
+    height: 80px;
+    width: 100px;
     border: 1px solid white;
     padding: 0px;
     border-top-left-radius: 8px;

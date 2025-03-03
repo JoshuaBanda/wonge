@@ -9,12 +9,13 @@ const HomeOptions = ({text,myBackgroudColor,myTextColor}) => {
                     position:"relative",
                     width:"90px",
                     height:"35px",
-                    border:"1px solid rgba(164, 120, 100, 0.24)",
+                    border:"1px solid rgba(164, 120, 100, 0.1)",
                     borderRadius:"20px",
                     backgroundColor:myBackgroudColor,
                     color:myTextColor,
-                    padding:"3px 10px",
-                    margin:"0px 0px 0px 0px"
+                    padding:"4px 10px",
+                    margin:"0px 0px 0px 0px",
+                    fontSize:'18px'
 
                 }}
                 >
