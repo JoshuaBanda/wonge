@@ -1,297 +1,287 @@
 import { useState } from "react";
-import Image from "next/image";
-import { useRouter } from "next/router";
-import Link from "next/link";
-import { FaEye, FaEyeSlash } from "react-icons/fa"; // Import the eye icons
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { motion } from "framer-motion";
+import axios from "axios";
+import { useRouter } from "next/router"; // Import router for navigation
 
 const SignUpPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const router = useRouter();
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [sex, setSex] = useState("female");
+  const [dateOfBirth, setDateOfBirth] = useState("");
+  const [profilePicture, setProfilePicture] = useState(null);
+  const [currentStep, setCurrentStep] = useState(0);
+  const [errors, setErrors] = useState({});
+  const [formError, setFormError] = useState(""); // For form-wide errors
+  const router = useRouter(); // Initialize router
 
-  const handleSubmit = (e) => {
+  const steps = [
+    { label: "Email", value: email, setValue: setEmail, type: "email", placeholder: "Email" },
+    { label: "Password", value: password, setValue: setPassword, type: "password", placeholder: "Password" },
+    { label: "First Name", value: firstName, setValue: setFirstName, type: "text", placeholder: "First Name" },
+    { label: "Last Name", value: lastName, setValue: setLastName, type: "text", placeholder: "Last Name" },
+    { label: "Phone Number", value: phone, setValue: setPhone, type: "tel", placeholder: "Phone Number" },
+    { label: "Sex", value: sex, setValue: setSex, type: "select", placeholder: "Sex" },
+    { label: "Date of Birth", value: dateOfBirth, setValue: setDateOfBirth, type: "date", placeholder: "Date of Birth" },
+    { label: "Profile Picture", value: profilePicture, setValue: setProfilePicture, type: "file", placeholder: "Profile Picture" },
+  ];
+
+  const validateField = (field, value) => {
+    let error = "";
+    switch (field) {
+      case "email":
+        if (!value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+          error = "Invalid email address";
+        }
+        break;
+      case "password":
+        if (value.length < 8) {
+          error = "Password must be at least 8 characters";
+        }
+        break;
+      case "phone":
+        if (!value.match(/^\d{10}$/)) {
+          error = "Invalid phone number";
+        }
+        break;
+      default:
+        break;
+    }
+    return error;
+  };
+
+  const handleNext = () => {
+    const currentField = steps[currentStep].label.toLowerCase().replace(" ", "");
+    const error = validateField(currentField, steps[currentStep].value);
+    if (error) {
+      setErrors({ ...errors, [currentField]: error });
+    } else if (steps[currentStep].value) {
+      setErrors({ ...errors, [currentField]: "" });
+      if (currentStep < steps.length - 1) {
+        setCurrentStep(currentStep + 1);
+      }
+    } else {
+      setErrors({ ...errors, [currentField]: "This field is required" });
+    }
+  };
+
+  const handlePrev = () => {
+    if (currentStep > 0) {
+      setCurrentStep(currentStep - 1);
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Check if passwords match
-    if (password !== confirmPassword) {
-      alert("Passwords do not match!");
+    // Validate all fields before submission
+    const newErrors = {};
+    steps.forEach((step) => {
+      const field = step.label.toLowerCase().replace(" ", "");
+      const error = validateField(field, step.value);
+      if (error) {
+        newErrors[field] = error;
+      }
+    });
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
       return;
     }
 
-    // Redirect to the create account page and pass email and password as query params
-    router.push({
-      pathname: "/userAunthentication/CreateAccountPage",
-      query: { email, password },
-    });
+    if (!firstName || !lastName || !phone || !dateOfBirth || !profilePicture) {
+      setFormError("Please fill out all fields and select a profile picture.");
+      return;
+    }
+
+    try {
+      // Create a FormData object to send the data including the file
+      const formData = new FormData();
+      formData.append("email", email);
+      formData.append("password", password);
+      formData.append("firstname", firstName);
+      formData.append("lastname", lastName);
+      formData.append("phonenumber", phone);
+      formData.append("sex", sex);
+      formData.append("dateofbirth", dateOfBirth);
+      formData.append("file", profilePicture); // Append the profile picture file
+
+      // Send the complete data to the backend
+      const response = await axios.post("https://wonge-backend.onrender.com/users/create-user", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data", // Important for file uploads
+        },
+      });
+
+      // If the request is successful
+      console.log("Account created successfully");
+      router.push("/home/HomePage"); // Redirect to the home page
+    } catch (error) {
+      // Handle error
+      console.error("Error creating user:", error.message);
+      setFormError(error.message); // Set the error message to display in UI
+    }
   };
 
   return (
-    <>
-      <div
-        style={{
-          position: "relative",
-          width: "100vw", // 100% of the viewport width
-          height: "100vh", // 100% of the viewport height
-        }}
-      >
-        {/* The background image with blur effect */}
-        <Image
-          src="/wonge2.jpg"
-          alt="signupimage"
-          fill
-          priority
-          quality={80}
-          style={{
-            objectFit: "cover", // Cover the entire area
-            filter: "blur(1px)", // Apply blur effect to the background image only
-            zIndex: -1, // Ensure the image stays in the background
-          }}
-        />
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", padding: "20px" }}>
+      <form onSubmit={handleSubmit} style={{ width: "100%", maxWidth: "500px", display: "flex", flexDirection: "column", gap: "20px" }}>
+        {steps.map((step, index) => (
+          <div key={step.label} style={{ display: currentStep === index ? "block" : "none" }}>
+            <label>{step.label}</label>
+            {step.type === "select" ? (
+              <select
+                value={step.value}
+                onChange={(e) => step.setValue(e.target.value)}
+                required
+                style={{ width: "100%", padding: "10px", borderRadius: "5px", border: "1px solid #ccc" }}
+              >
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            ) : step.type === "file" ? (
+              <input
+                type="file"
+                onChange={(e) => step.setValue(e.target.files[0])}
+                style={{ width: "100%", padding: "10px" }}
+              />
+            ) : (
+              <div style={{ position: "relative" }}>
+                <input
+                  type={step.type === "password" && !showPassword ? "password" : step.type}
+                  value={step.value}
+                  onChange={(e) => step.setValue(e.target.value)}
+                  required
+                  placeholder={step.placeholder}
+                  style={{ width: "100%", padding: "10px", borderRadius: "5px", border: "1px solid #ccc" }}
+                />
+                {step.type === "password" && (
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    style={{
+                      position: "absolute",
+                      right: "10px",
+                      top: "50%",
+                      transform: "translateY(-50%)",
+                      background: "none",
+                      border: "none",
+                      color: "gray",
+                      cursor: "pointer",
+                    }}
+                  >
+                    {showPassword ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
+                  </button>
+                )}
+              </div>
+            )}
+            {errors[step.label.toLowerCase().replace(" ", "")] && (
+              <p style={{ color: "red", fontSize: "14px", marginTop: "5px" }}>
+                {errors[step.label.toLowerCase().replace(" ", "")]}
+              </p>
+            )}
+          </div>
+        ))}
 
-        {/* Dark overlay on top of the blurred image */}
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: "rgba(0, 0, 0, 0.5)", // Dark overlay with transparency
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            zIndex: 0, // Overlay stays on top of the blurred image
-          }}
-        >
-          {/* Sign-up content with clear text */}
-          <div
+        {formError && (
+          <p style={{ color: "red", fontSize: "14px", textAlign: "center" }}>
+            {formError}
+          </p>
+        )}
+
+        {currentStep === steps.length - 1 ? (
+          <motion.button
+            type="submit"
             style={{
-              position: "relative",
-              height: "650px",
-              width: "95%", // Ensure container width is proportionate
-              maxWidth: "500px", // Optional max-width
-              margin: "auto",
-              border: "1px solid rgba(255,255,255,0.4)",
-              backgroundColor: "rgba(0,0,0, 0.6)", // Light white overlay
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-              padding: "20px",
-              borderRadius: '20px',
+              height: "40px",
+              width: "100%",
+              textAlign: "center",
+              color: "white",
+              lineHeight: "30px",
+              borderRadius: "5px",
+              cursor: "pointer",
+              backgroundColor: "#007bff",
+              border: "none",
+              fontSize: "16px",
+            }}
+            initial={{ opacity: 0.5, y: 0 }}
+            animate={{ opacity: 1, y: 10 }}
+            transition={{
+              type: "spring",
+              stiffness: 255,
+              duration: 150,
+              repeat: Infinity,
+              repeatType: "reverse",
             }}
           >
-            {/* Title text */}
-            <p
+            Submit
+          </motion.button>
+        ) : null}
+
+        <div style={{ display: "flex", gap: "10px", justifyContent: "center", marginTop: "10px" }}>
+          {currentStep > 0 && (
+            <motion.button
+              onClick={handlePrev}
               style={{
-                color: "white",
-                fontSize: "25px",
-                marginBottom: "10px",
+                height: "40px",
+                width: "100px",
                 textAlign: "center",
-                position: "relative", // Ensure text is clear and not blurred
-                zIndex: 1, // Text stays on top of the container
-              }}
-            >
-              WONGE ENTERPRISE
-            </p>
-            <p
-              style={{
                 color: "white",
-                fontSize: "30px",
-                marginBottom: "20px",
-                textAlign: "center",
-                position: "relative", // Ensure text is clear and not blurred
-                zIndex: 1, // Text stays on top of the container
-              }}
-            >
-              Sign Up
-            </p>
-
-            {/* Sign-up Form */}
-            <form
-              onSubmit={handleSubmit}
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                width: "100%",
-                gap: "15px", // Add space between the input fields
-              }}
-            >
-              {/* Email Input with Label */}
-              <label
-                htmlFor="email"
-                style={{
-                  color: "white",
-                  marginBottom: "5px",
-                  fontSize: "14px",
-                  textAlign: "left",
-                  width: "80%",
-                  maxWidth: "400px",
-                }}
-              >
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                style={{
-                  padding: "10px",
-                  width: "80%", // Make the input fields full-width
-                  maxWidth: "400px", // Optional: max width for the inputs
-                  marginBottom: "10px",
-                  border: "1px solid #ddd",
-                  borderRadius: "50px",
-                  fontSize: "16px",
-                }}
-              />
-
-              {/* Password Input with Label and Icon */}
-              <label
-                htmlFor="password"
-                style={{
-                  color: "white",
-                  marginBottom: "5px",
-                  fontSize: "14px",
-                  textAlign: "left",
-                  width: "80%",
-                  maxWidth: "400px",
-                }}
-              >
-                Password
-              </label>
-              <div style={{ position: "relative", width: "80%", maxWidth: "400px" }}>
-                <input
-                  type={showPassword ? "text" : "password"}
-                  id="password"
-                  placeholder="Password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                  style={{
-                    padding: "10px",
-                    width: "100%",
-                    marginBottom: "10px",
-                    border: "1px solid #ddd",
-                    borderRadius: "50px",
-                    fontSize: "16px",
-                  }}
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowPassword(!showPassword)}
-                  style={{
-                    position: "absolute",
-                    right: "10px",
-                    top: "10px",
-                    background: "none",
-                    border: "none",
-                    color: "gray",
-                    cursor: "pointer",
-                  }}
-                >
-                  {showPassword ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
-                </button>
-              </div>
-
-              {/* Confirm Password Input with Label and Icon */}
-              <label
-                htmlFor="confirmPassword"
-                style={{
-                  color: "white",
-                  marginBottom: "5px",
-                  fontSize: "14px",
-                  textAlign: "left",
-                  width: "80%",
-                  maxWidth: "400px",
-                }}
-              >
-                Confirm Password
-              </label>
-              <div style={{ position: "relative", width: "80%", maxWidth: "400px" }}>
-                <input
-                  type={showConfirmPassword ? "text" : "password"}
-                  id="confirmPassword"
-                  placeholder="Confirm Password"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  required
-                  style={{
-                    padding: "10px",
-                    width: "100%",
-                    marginBottom: "20px",
-                    border: "1px solid #ddd",
-                    borderRadius: "50px",
-                    fontSize: "16px",
-                  }}
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  style={{
-                    position: "absolute",
-                    right: "10px",
-                    top: "10px",
-                    background: "none",
-                    border: "none",
-                    color: "gray",
-                    cursor: "pointer",
-                  }}
-                >
-                  {showConfirmPassword ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
-                </button>
-              </div>
-
-              {/* Submit Button */}
-              <button
-                type="submit"
-                style={{
-                  padding: "10px 20px",
-                  backgroundColor: "#007bff",
-                  color: "white",
-                  border: "none",
-                  borderRadius: "50px",
-                  fontSize: "16px",
-                  cursor: "pointer",
-                }}
-              >
-                Sign Up
-              </button>
-            </form>
-
-            {/* Redirect to Login */}
-            <p
-              style={{
-                marginTop: "20px",
-                color: "white",
+                lineHeight: "30px",
+                borderRadius: "50px",
+                cursor: "pointer",
+                backgroundColor: "rgba(0,0,0,0.1)",
+                border: "3px solid transparent",
                 fontSize: "16px",
-                textAlign: "center",
-                zIndex: 1, // Make sure it's on top of the other content
+              }}
+              initial={{ opacity: 0.5, y: 0 }}
+              animate={{ opacity: 1, y: 10 }}
+              transition={{
+                type: "spring",
+                stiffness: 255,
+                duration: 150,
+                repeat: Infinity,
+                repeatType: "reverse",
               }}
             >
-              Already have an account?{" "}
-              <Link
-                href="/" // Link to login page
-                style={{
-                  color: "#007bff", // Blue color for the link
-                  textDecoration: "none",
-                  fontWeight: "bold",
-                }}
-              >
-                Log in
-              </Link>
-            </p>
-          </div>
+              Prev
+            </motion.button>
+          )}
+          {currentStep < steps.length - 1 && (
+            <motion.button
+              onClick={handleNext}
+              style={{
+                height: "40px",
+                width: "100px",
+                textAlign: "center",
+                color: "white",
+                lineHeight: "30px",
+                borderRadius: "50px",
+                cursor: "pointer",
+                backgroundColor: "rgba(0,0,0,0.1)",
+                border: "3px solid transparent",
+                fontSize: "16px",
+              }}
+              initial={{ opacity: 0.5, y: 0 }}
+              animate={{ opacity: 1, y: 10 }}
+              transition={{
+                type: "spring",
+                stiffness: 255,
+                duration: 150,
+                repeat: Infinity,
+                repeatType: "reverse",
+              }}
+            >
+              Next
+            </motion.button>
+          )}
         </div>
-      </div>
-    </>
+      </form>
+    </div>
   );
 };
 
