@@ -207,28 +207,7 @@ const LoginPage = () => {
 
             </form>
 
-            {/* "Don't have an account? Sign up" text */}
-            <p
-              style={{
-                marginTop: "20px",
-                color: "white",
-                fontSize: "16px",
-                textAlign: "center",
-                zIndex: 1, // Make sure it's on top of the other content
-              }}
-            >
-              Don&apos;t have an account?
-              <Link
-                href="/userAunthentication/SignUpPage" // Link to sign-up page, update the path as necessary
-                style={{
-                  color: "#007bff", // Blue color for the link
-                  textDecoration: "none",
-                  fontWeight: "bold",
-                }}
-              >
-                Sign up
-              </Link>
-            </p>
+            
           </div>
           
     </>

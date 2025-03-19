@@ -1,50 +1,60 @@
 import Image from 'next/image';
 import { useState } from 'react';
-import LoginPart from '../pages/LoginPart'
+import LoginPart from '../pages/LoginPart';
 import { motion } from 'framer-motion';
 import SignUpPage from './userAunthentication/SignUpPage';
+
 export default function LoginPage() {
-  // State to manage the widths, border radius, zIndex, position offsets, and selected side
   const [state, setState] = useState({
-    leftWidth: '80%',  // Initial width for the left item
-    rightWidth: '20%', // Initial width for the right item
-    leftRadius: '20px',  // Border radius for the left item
-    rightRadius: '20px', // Border radius for the right item
-    leftZIndex: 1,   // zIndex for the left item
-    rightZIndex: 0,  // zIndex for the right item
-    leftPosition: '0px', // Initial position for the left item
-    rightPosition: '0px', // Initial position for the right item
-    selectedSide: null,  // State to track which side is selected ('left' or 'right')
+    leftWidth: '80%',
+    rightWidth: '20%',
+    leftRadius: '20px',
+    rightRadius: '20px',
+    leftZIndex: 1,
+    rightZIndex: 0,
+    leftPosition: '0px',
+    rightPosition: '0px',
+    selectedSide: null,
   });
 
-  // Function to handle the click event and change widths, border radius, zIndex, and position
   const handleSelect = (side) => {
     if (side === 'left') {
       setState({
         ...state,
-        leftWidth: '90%',
-        rightWidth: '10%',
+        leftWidth: '80%',
+        rightWidth: '20%',
         leftRadius: '20px',
         rightRadius: '20px',
         leftZIndex: 1,
         rightZIndex: 0,
         leftPosition: '10px',
         rightPosition: '0px',
-        selectedSide: 'left',  // Mark left side as selected
+        selectedSide: 'left',
       });
     } else {
       setState({
         ...state,
         leftWidth: '10%',
-        rightWidth: '90%',
+        rightWidth: '80%',
         leftRadius: '20px',
         rightRadius: '20px',
         leftZIndex: 0,
         rightZIndex: 1,
         leftPosition: '0px',
         rightPosition: '10px',
-        selectedSide: 'right',  // Mark right side as selected
+        selectedSide: 'right',
       });
+    }
+  };
+
+  const handleDragEnd = (event, info) => {
+    // Determine the direction of the swipe
+    if (info.offset.x > 50) {
+      // Swipe right
+      handleSelect('left');
+    } else if (info.offset.x < -50) {
+      // Swipe left
+      handleSelect('right');
     }
   };
 
@@ -52,12 +62,11 @@ export default function LoginPage() {
     <div
       style={{
         position: 'relative',
-        width: '100vw', // Full viewport width
-        height: '100vh', // Full viewport height
-        overflow: 'hidden', // Ensure nothing overflows outside the container
+        width: '100vw',
+        height: '100vh',
+        overflow: 'hidden',
       }}
     >
-      {/* The background image with blur effect */}
       <Image
         src="/wonge2.jpg"
         alt="loginimage"
@@ -65,13 +74,12 @@ export default function LoginPage() {
         priority
         quality={80}
         style={{
-          objectFit: 'cover', // Cover the entire area
-          filter: 'blur(1px)', // Apply blur effect to the background image only
-          zIndex: -1, // Ensure the image stays in the background
+          objectFit: 'cover',
+          filter: 'blur(1px)',
+          zIndex: -1,
         }}
       />
 
-      {/* Dark overlay on top of the blurred image */}
       <div
         style={{
           position: 'absolute',
@@ -79,14 +87,14 @@ export default function LoginPage() {
           left: 0,
           right: 0,
           bottom: 0,
-          backgroundColor: 'rgba(0, 0, 0, 0.5)', // Dark overlay with transparency
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          zIndex: 0, // Overlay stays on top of the blurred image
+          zIndex: 0,
         }}
       >
-        <ul
+        <motion.ul
           style={{
             position: 'relative',
             display: 'flex',
@@ -94,11 +102,10 @@ export default function LoginPage() {
             padding: '0px',
             height: '450px',
             width: '90%',
-            display: 'flex',
             alignItems: 'stretch',
           }}
         >
-          <li
+          <motion.li
             style={{
               backgroundColor: 'rgba(0,0,0,0.5)',
               margin: '0px',
@@ -116,29 +123,29 @@ export default function LoginPage() {
               alignItems: 'center',
             }}
             onClick={() => handleSelect('left')}
+            drag="x" // Enable horizontal dragging
+            dragConstraints={{ left: 0, right: 0 }} // Restrict dragging to the horizontal axis
+            onDragEnd={handleDragEnd} // Handle drag end event
           >
-            {/* Default content for the left side */}
             {state.selectedSide === 'left' || state.selectedSide === null ? (
-              <div>
-              <motion.div 
-              
-              initial={{ opacity: 0, x:-600 }}
-                animate={{ opacity: 1,x:0 }}
+              <motion.div
+                initial={{ opacity: 0, x: -600 }}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{
-                    type: 'spring', stiffness: 20,
-                }}>
-                
-                <LoginPart/>
+                  type: 'spring',
+                  stiffness: 20,
+                }}
+              >
+                <LoginPart />
               </motion.div>
-              </div>
             ) : (
               <div>
                 <p>Login</p>
               </div>
             )}
-          </li>
+          </motion.li>
 
-          <li
+          <motion.li
             style={{
               backgroundColor: 'wheat',
               margin: '0px',
@@ -156,28 +163,28 @@ export default function LoginPage() {
               alignItems: 'center',
             }}
             onClick={() => handleSelect('right')}
+            drag="x" // Enable horizontal dragging
+            dragConstraints={{ left: 0, right: 0 }} // Restrict dragging to the horizontal axis
+            onDragEnd={handleDragEnd} // Handle drag end event
           >
-            {/* Content for the right side */}
             {state.selectedSide === 'right' ? (
-              <div>
-                
-                <motion.div 
-                
-                initial={{ opacity: 0, x:600 }}
-                  animate={{ opacity: 1,x:0 }}
-                  transition={{
-                      type: 'spring', stiffness: 20,
-                  }}>
-                  <SignUpPage/>
-                </motion.div>
-              </div>
+              <motion.div
+                initial={{ opacity: 0, x: 600 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{
+                  type: 'spring',
+                  stiffness: 20,
+                }}
+              >
+                <SignUpPage />
+              </motion.div>
             ) : (
               <div>
                 <p>SignUp</p>
               </div>
             )}
-          </li>
-        </ul>
+          </motion.li>
+        </motion.ul>
       </div>
     </div>
   );

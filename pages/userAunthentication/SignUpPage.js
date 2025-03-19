@@ -147,7 +147,7 @@ const SignUpPage = () => {
               <input
                 type="file"
                 onChange={(e) => step.setValue(e.target.files[0])}
-                style={{ width: "100%", padding: "10px" }}
+                style={{ width: "100%", padding: "10px" ,borderRadius:'20px'}}
               />
             ) : (
               <div style={{ position: "relative" }}>
@@ -157,7 +157,7 @@ const SignUpPage = () => {
                   onChange={(e) => step.setValue(e.target.value)}
                   required
                   placeholder={step.placeholder}
-                  style={{ width: "100%", padding: "10px", borderRadius: "5px", border: "1px solid #ccc" }}
+                  style={{ width: "200px", padding: "10px", borderRadius: "20px", border: "1px solid #ccc" }}
                 />
                 {step.type === "password" && (
                   <button
@@ -167,14 +167,14 @@ const SignUpPage = () => {
                       position: "absolute",
                       right: "10px",
                       top: "50%",
-                      transform: "translateY(-50%)",
                       background: "none",
                       border: "none",
                       color: "gray",
                       cursor: "pointer",
+                      width:'200px'
                     }}
                   >
-                    {showPassword ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
+                    {showPassword ? <FaEyeSlash size={20} style={{position:'relative',top:'-10px',right:'-40px'}}/> : <FaEye size={20} style={{position:'relative',top:'-10px',right:'-40px'}} />}
                   </button>
                 )}
               </div>
@@ -229,7 +229,7 @@ const SignUpPage = () => {
                 style={{
                     margin:'0 auto',
                   height: '40px',
-                  width: '150px', // Adjust width for the link
+                  width: '100px', // Adjust width for the link
                   textAlign: 'center',
                   color: 'white',
                   lineHeight: '30px', // Vertically center the text
@@ -240,7 +240,7 @@ const SignUpPage = () => {
                   alignItems: 'center',
                   justifyContent: 'center', // Center the text inside the link
                   border: '3px solid transparent', // Set an initial transparent border
-                  fontSize: '22px',
+                  fontSize: '18px',
                   position: 'relative', // Ensure correct positioning for the animation
                   overflow: 'hidden', // Ensures border does not exceed the element’s boundary
                   animation: 'borderAnimation 2s linear infinite', // Apply the animation
@@ -279,7 +279,7 @@ const SignUpPage = () => {
                 style={{
                     margin:'0 auto',
                   height: '40px',
-                  width: '150px', // Adjust width for the link
+                  width: '100px', // Adjust width for the link
                   textAlign: 'center',
                   color: 'white',
                   lineHeight: '30px', // Vertically center the text
@@ -290,7 +290,7 @@ const SignUpPage = () => {
                   alignItems: 'center',
                   justifyContent: 'center', // Center the text inside the link
                   border: '3px solid transparent', // Set an initial transparent border
-                  fontSize: '22px',
+                  fontSize: '18px',
                   position: 'relative', // Ensure correct positioning for the animation
                   overflow: 'hidden', // Ensures border does not exceed the element’s boundary
                   animation: 'borderAnimation 2s linear infinite', // Apply the animation
