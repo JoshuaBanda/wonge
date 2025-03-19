@@ -6,8 +6,8 @@ import SignUpPage from './userAunthentication/SignUpPage';
 export default function LoginPage() {
   // State to manage the widths, border radius, zIndex, position offsets, and selected side
   const [state, setState] = useState({
-    leftWidth: '90%',  // Initial width for the left item
-    rightWidth: '10%', // Initial width for the right item
+    leftWidth: '80%',  // Initial width for the left item
+    rightWidth: '20%', // Initial width for the right item
     leftRadius: '20px',  // Border radius for the left item
     rightRadius: '20px', // Border radius for the right item
     leftZIndex: 1,   // zIndex for the left item
@@ -100,7 +100,7 @@ export default function LoginPage() {
         >
           <li
             style={{
-              backgroundColor: 'red',
+              backgroundColor: 'rgba(0,0,0,0.5)',
               margin: '0px',
               width: state.leftWidth,
               height: '100%',
@@ -140,7 +140,7 @@ export default function LoginPage() {
 
           <li
             style={{
-              backgroundColor: 'blue',
+              backgroundColor: 'wheat',
               margin: '0px',
               width: state.rightWidth,
               height: '100%',
@@ -173,7 +173,7 @@ export default function LoginPage() {
               </div>
             ) : (
               <div>
-                <p>Login</p>
+                <p>SignUp</p>
               </div>
             )}
           </li>

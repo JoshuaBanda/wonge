@@ -226,58 +226,102 @@ const SignUpPage = () => {
           {currentStep > 0 && (
             <motion.button
               onClick={handlePrev}
-              style={{
-                height: "40px",
-                width: "100px",
-                textAlign: "center",
-                color: "white",
-                lineHeight: "30px",
-                borderRadius: "50px",
-                cursor: "pointer",
-                backgroundColor: "rgba(0,0,0,0.1)",
-                border: "3px solid transparent",
-                fontSize: "16px",
-              }}
-              initial={{ opacity: 0.5, y: 0 }}
-              animate={{ opacity: 1, y: 10 }}
-              transition={{
-                type: "spring",
-                stiffness: 255,
-                duration: 150,
-                repeat: Infinity,
-                repeatType: "reverse",
-              }}
-            >
+                style={{
+                    margin:'0 auto',
+                  height: '40px',
+                  width: '150px', // Adjust width for the link
+                  textAlign: 'center',
+                  color: 'white',
+                  lineHeight: '30px', // Vertically center the text
+                  borderRadius: '50px', // Optional: adds rounded corners
+                  cursor: 'pointer', // Change cursor to pointer to show it’s clickable
+                  zIndex: 20, // Ensure it appears above the overlay and below the welcome text
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center', // Center the text inside the link
+                  border: '3px solid transparent', // Set an initial transparent border
+                  fontSize: '22px',
+                  position: 'relative', // Ensure correct positioning for the animation
+                  overflow: 'hidden', // Ensures border does not exceed the element’s boundary
+                  animation: 'borderAnimation 2s linear infinite', // Apply the animation
+                  backgroundColor:'rgba(0,0,0,0.1)'
+                }}
+                initial={{ opacity: 0.5, y:0 }}
+                animate={{ opacity: 1,y:10 }}
+                transition={{
+                    type: 'spring', stiffness: 255, duration: 150, repeat: Infinity, repeatType: 'reverse',
+                }}
+
+              >
+              
+
+              <style jsx>{`
+                @keyframes borderAnimation {
+                  0% {
+                    border-color: transparent;
+                  }
+                  50% {
+                    border-color: white;
+                    border-width: 3px;
+                  }
+                  100% {
+                    border-color: transparent;
+                  }
+                }
+              `}</style>
               Prev
             </motion.button>
+            
           )}
           {currentStep < steps.length - 1 && (
             <motion.button
               onClick={handleNext}
-              style={{
-                height: "40px",
-                width: "100px",
-                textAlign: "center",
-                color: "white",
-                lineHeight: "30px",
-                borderRadius: "50px",
-                cursor: "pointer",
-                backgroundColor: "rgba(0,0,0,0.1)",
-                border: "3px solid transparent",
-                fontSize: "16px",
-              }}
-              initial={{ opacity: 0.5, y: 0 }}
-              animate={{ opacity: 1, y: 10 }}
-              transition={{
-                type: "spring",
-                stiffness: 255,
-                duration: 150,
-                repeat: Infinity,
-                repeatType: "reverse",
-              }}
-            >
+                style={{
+                    margin:'0 auto',
+                  height: '40px',
+                  width: '150px', // Adjust width for the link
+                  textAlign: 'center',
+                  color: 'white',
+                  lineHeight: '30px', // Vertically center the text
+                  borderRadius: '50px', // Optional: adds rounded corners
+                  cursor: 'pointer', // Change cursor to pointer to show it’s clickable
+                  zIndex: 20, // Ensure it appears above the overlay and below the welcome text
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center', // Center the text inside the link
+                  border: '3px solid transparent', // Set an initial transparent border
+                  fontSize: '22px',
+                  position: 'relative', // Ensure correct positioning for the animation
+                  overflow: 'hidden', // Ensures border does not exceed the element’s boundary
+                  animation: 'borderAnimation 2s linear infinite', // Apply the animation
+                  backgroundColor:'rgba(0,0,0,0.1)'
+                }}
+                initial={{ opacity: 0.5, y:0 }}
+                animate={{ opacity: 1,y:10 }}
+                transition={{
+                    type: 'spring', stiffness: 200, duration: 250, repeat: Infinity, repeatType: 'reverse',
+                }}
+
+              >
+              
+
+              <style jsx>{`
+                @keyframes borderAnimation {
+                  0% {
+                    border-color: transparent;
+                  }
+                  50% {
+                    border-color: white;
+                    border-width: 3px;
+                  }
+                  100% {
+                    border-color: transparent;
+                  }
+                }
+              `}</style>
               Next
             </motion.button>
+            
           )}
         </div>
       </form>
