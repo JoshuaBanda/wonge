@@ -39,16 +39,16 @@ const NavBarItemList = () => {
                                 y: 
                                 index === 0 ? 100: 
                                 index === 1 ? 0 : 
-                                    index === 2 ? -50 : 
+                                    index === 2 ? -30 : 
                                     index === 3 ? 180 : 
                                     index === 4 ? 150 : 
                                     100,
                                 x:
-                                index === 0 ? 160 : 
-                                 index === 1 ? 100 : 
-                                    index === 2 ?50 : 
-                                    index === 3 ? -75 : 
-                                    index===4?-280:0
+                                index === 0 ? 80 : 
+                                 index === 1 ? 10 : 
+                                    index === 2 ?-50 : 
+                                    index === 3 ? -175 : 
+                                    index===4?-380:0
 
                             }}
                             exit={{ opacity: 0, x: 100, scale: 0.5 }} // Exit to the right

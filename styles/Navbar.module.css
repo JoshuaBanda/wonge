@@ -9,7 +9,7 @@
   width: 100%;
   background-color: rgba(0, 0, 0, 0.1); /* Semi-transparent background */
   backdrop-filter: blur(10px); /* Apply blur effect */
-  box-shadow:0 -4px 10px rgba(0, 0, 0, 0.8) ;
+  box-shadow:7px 2px 10px rgba(0, 0, 0, 0.5) ;
   -webkit-backdrop-filter: blur(10px); /* For Safari support */
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
