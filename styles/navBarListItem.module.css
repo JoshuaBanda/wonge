@@ -1,0 +1,49 @@
+.container {
+    position: relative;
+    margin: 10px 0px;
+    overflow: hidden; /* Hide overflow from the container */
+    width: 100%; /* Ensure the width is correct */
+}
+
+.listItems {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    width: max-content; /* Allow the list to expand beyond the container */
+}
+
+.listItems li {
+    list-style: none;
+    margin: 0 15px; /* Adds space between items */
+    flex-shrink: 0; /* Prevent items from shrinking */
+}
+
+.item {
+    border: 2px solid rgba(255, 68, 0, 0.459);
+    width: auto; /* Set width for item */
+    text-align: center; /* Center the text inside the item */
+    border-radius: 20px;
+    height: 150px;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(50px);
+    
+}
+
+.photoContainer {
+    position: relative;
+    height: 100px;
+    width: 100px;
+    border: 1px solid white;
+    padding: 0px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 10px; /* Adds space between image and text */
+}
+
+.container p {
+    color: rgb(85, 85, 85);
+    margin-left: 10px;
+    font-size: 14px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

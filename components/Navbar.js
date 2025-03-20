@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { FaSeedling } from 'react-icons/fa';
 import { FaCarTunnel } from 'react-icons/fa6';
 import { FaShoppingBasket } from 'react-icons/fa';
+import NavBarItemList from '../pages/Desings/NavBarItemList';
 
 function Navbar() {
   const [menuItem, setMenuItem] = useState('');
@@ -34,6 +35,7 @@ function Navbar() {
         <div className={style.name}>
           <span>Wonge</span>
           <span className={style.marketText}>Market</span>
+          <span style={{color:'orangered'}}>Online</span>
         </div>
 
         {/* Menu */}
@@ -54,10 +56,10 @@ function Navbar() {
         {/* Image */}
         <div className={style.firstContainerImageBox}>
           <Image
-            src='/perfume3.jpg' // Use the photo_url from the API
+            src='/wonge5_with_no_bg.png' // Use the photo_url from the API
             alt='Perfume'
-            width={90} // Adjust width as needed
-            height={90} // Adjust height as needed
+            width={210} // Adjust width as needed
+            height={120} // Adjust height as needed
             className={style.pic} // Red border and rounded corners applied here
           />
         </div>
@@ -65,12 +67,16 @@ function Navbar() {
         {/* Text */}
         <div className={style.firstContainerText}>
           <h3>
-            Bringing the <span className={style.highlightText}>best cosmetics</span>
+            Bringing the <span className={style.highlightText}>best cosmetics</span> And <span className={style.highlightText}>Avon Lotion</span>
           </h3>
           <p className={style.subText}>
             Market with us and get the best
           </p>
         </div>
+      </div>
+      {/*second container*/}
+      <div className={style.secondContainer}>
+          <NavBarItemList/>
       </div>
     </div>
   );

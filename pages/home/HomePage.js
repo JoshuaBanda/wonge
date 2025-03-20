@@ -45,7 +45,6 @@ const HomePage = () => {
       <div className={styles.container}>
         <SearchBox />
 
-        <div className={styles.title}>Find the best Cosmetics</div>
 
         <div className={styles.itemsListContainer}>
           <ul>
@@ -74,10 +73,10 @@ const HomePage = () => {
         </div>
         {/*  
         <Carousel />
-*/}
+*/}   {/*
         <div className={styles.paperTextContainer}>
           <PaperText />
-        </div>
+        </div>*/}
 
         <AnimatePresence>
           <motion.div

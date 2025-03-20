@@ -2,9 +2,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  
 }
-
 
 a {
   color: inherit;
@@ -15,29 +13,40 @@ a {
   box-sizing: border-box;
 }
 
+/* Dark mode styles */
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
   body {
-    color: black;
-    background: white;
+    color: white; /* Adjusted for better contrast */
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 50;
+    background-image: url('/yo.jpg'); /* Corrected the image path */
+    background-size: cover; /* Optional: ensures the background image covers the body */
+    backdrop-filter: blur(10px);
   }
 }
 
+/* Animation for wave gradient 
 @keyframes waveGradient {
   0% {
-      background-position: 200% 0;
+    background-position: 200% 0;
   }
   50% {
-      background-position: 0 0;
+    background-position: 0 0;
   }
   100% {
-      background-position: 200% 0;
+    background-position: 200% 0;
   }
+}*/
+
+/* Apply the animation to the body */
+body {
+  /*background: linear-gradient(90deg, rgba(255,0,0,0.1), rgba(0,0,255,0.1));*/
+  animation: waveGradient 5s ease-in-out infinite; /* Apply the waveGradient animation */
 }
+
 
 
 
