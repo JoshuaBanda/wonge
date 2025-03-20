@@ -7,7 +7,7 @@ const NavBarItemList = () => {
     const [items, setItems] = useState([
         { id: 1, src: '/lotion.jpg', alt: 'Avon Lotion', text: 'Avon Lotion' },
         { id: 2, src: '/perfume.jpg', alt: 'Perfume', text: 'Perfume' },
-        { id: 3, src: '/earring2.jpg', alt: 'Earrings', text: 'Earrings' },
+        { id: 3, src: '/earring3.png', alt: 'Earrings', text: 'Earrings' },
         { id: 4, src: '/brochus.jpg', alt: 'Brochures', text: 'Brochures' },
     ]);
 

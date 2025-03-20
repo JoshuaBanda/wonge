@@ -50,8 +50,8 @@ const HomePage = () => {
           <ul>
             {items.map((item, index) => {
               const isSelected = selectedItem === item;
-              const myBackgroudColor = isSelected ? "wheat" : "white";
-              const myTextColor = isSelected ? "sienna" : "sienna";
+              const myBackgroudColor = isSelected ? "#333" : "white";
+              const myTextColor = isSelected ? "white" : "#333";
 
               return (
                 <motion.li
@@ -77,8 +77,8 @@ const HomePage = () => {
         <div className={styles.paperTextContainer}>
           <PaperText />
         </div>*/}
-
-        <AnimatePresence>
+        
+       <AnimatePresence>
           <motion.div
             ref={listRef}
             initial={{ opacity: 0, y: 100 }}
@@ -93,34 +93,10 @@ const HomePage = () => {
               duration: 1,
             }}
           >
-            <ItemList />
+        <ShopItems searchItem={selectedItem} />
           </motion.div>
         </AnimatePresence>
-
-        <AnimatePresence>
-          <motion.div
-            ref={shopRef}
-            initial={{ opacity: 0, y: 100 }}
-            animate={{
-              opacity: shopInView ? 1 : 0,
-              y: shopInView ? 0 : 50,
-              visibility: shopInView ? 'visible' : 'hidden',
-            }}
-            exit={{
-              opacity: 0,
-              y: 0,
-              visibility: 'hidden',
-            }}
-            transition={{
-              type: 'keyframes',
-              stiffness: 300,
-              duration: 2,
-            }}
-          >
-            <ShopItems searchItem={selectedItem} />
-          </motion.div>
-        </AnimatePresence>
-
+        
         <motion.div
           ref={shopNowRef}
           initial={{ opacity: 0, y: 100 }}
@@ -142,7 +118,7 @@ const HomePage = () => {
             fontSize: '24px',
             fontWeight: 'bold',
             fontFamily: 'DM Sans, sans-serif',
-            color: '#333',
+            color: 'white',
           }}
         >
           Shopping made easy
@@ -153,8 +129,7 @@ const HomePage = () => {
               width: '150px',
               height: '45px',
               borderRadius: '25px',
-              color: 'sienna',
-              backgroundColor: 'wheat', 
+              backgroundColor: '#333', 
               display: 'flex',
               justifyContent: 'center', // Center the text inside button
               alignItems: 'center', // Vertically center the text
