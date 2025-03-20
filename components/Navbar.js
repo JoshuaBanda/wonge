@@ -29,7 +29,6 @@ function Navbar() {
 
   return (
     <div className={style.container}>
-    <FaBars/>
       {/* Headings */}
       <div className={style.heading}>
         {/* Name of website */}

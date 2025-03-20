@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar'; // Adjust path if necessary
 import '../styles/globals.css'; // Import your global styles
 import Footer from '../components/Footer';
 import Head from 'next/head';
+import Sidebar from '../components/SideBar';
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -27,7 +28,10 @@ function MyApp({ Component, pageProps }) {
         </>
       </Head>
       {/* Render the navbar only if the user is not on the landing page */}
+      
+{!isLandingPage && <Sidebar />}
       {!isLandingPage && <Navbar />}
+
 
       {/* Render the page component */}
       <Component {...pageProps} />

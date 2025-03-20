@@ -39,11 +39,12 @@
 }
 
 .container p {
-    color: rgb(85, 85, 85);
-    margin-left: 10px;
+    color: white;
+    margin-left: 1px;
     font-size: 14px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(50px);
     border-radius: 5px;
+    padding: 10px;
+    font-weight: normal;
 }
