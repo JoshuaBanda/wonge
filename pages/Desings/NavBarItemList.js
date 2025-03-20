@@ -49,9 +49,11 @@ const NavBarItemList = () => {
                                     index === 2 ?-50 : 
                                     index === 3 ? -175 : 
                                     index===4?-380:0
-
+                                
                             }}
-                            exit={{ opacity: 0, x: 100, scale: 0.5 }} // Exit to the right
+                            exit={{ 
+                                opacity:index===3?0:1,
+                             x: 100, scale: 0.5 }} // Exit to the right
                             transition={{
                                 duration: 1, // Duration of animation
                                 ease: "linear", // Linear easing for smooth transition

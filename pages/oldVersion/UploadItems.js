@@ -99,6 +99,7 @@ const UploadItems = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             style={inputStyle}
+            placeholder='Enter name of Product'
           />
         </div>
         <div style={formGroupStyle}>
@@ -108,6 +109,8 @@ const UploadItems = () => {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             style={inputStyle}
+            
+            placeholder='Enter Description of the Product'
           />
         </div>
         <div style={formGroupStyle}>
@@ -187,11 +190,11 @@ const containerStyle = {
   border: '1px solid #ddd',
   borderRadius: '5px',
   boxShadow: '0 2px 10px rgba(0, 0, 0, 0.35)',
-  backgroundColor: '#f9f9f9',
+  color:'orangered'
 };
 
 const formStyle = {
-  backgroundColor: '#fff',
+  backgroundColor: 'rgba(255,255,255,0.1)',
   padding: '20px',
   borderRadius: '5px',
   boxShadow: '0 2px 5px rgba(0, 0, 0, 0.4)',
@@ -199,7 +202,7 @@ const formStyle = {
 
 const headingStyle = {
   textAlign: 'center',
-  color: '#333',
+  color: '#ccc',
 };
 
 const formGroupStyle = {
@@ -218,8 +221,8 @@ const inputStyle = {
   border: '1px solid #ccc',
   borderRadius: '4px',
   boxSizing: 'border-box',
-  backgroundColor:"white",
-  color:"black",
+  backgroundColor:"rgba(255,255,255,0.7)",
+  color:"white",
 };
 
 const fileInputStyle = {

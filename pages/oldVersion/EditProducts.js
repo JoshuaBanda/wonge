@@ -177,7 +177,6 @@ const EditProducts = () => {
 const containerStyle = {
     padding: "20px",
     borderRadius: "10px",
-    backgroundColor: "white",
     maxWidth: "600px",
     margin: "0 auto",
     marginTop: "10px",
