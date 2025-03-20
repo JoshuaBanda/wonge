@@ -5,10 +5,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const NavBarItemList = () => {
     const [items, setItems] = useState([
-        { id: 1, src: '/lotion.jpg', alt: 'Avon Lotion', text: 'Avon Lotion' },
-        { id: 2, src: '/perfume.jpg', alt: 'Perfume', text: 'Perfume' },
+        { id: 1, src: '/avon_with_no_bg.png', alt: 'Avon Lotion', text: 'Avon Lotion' },
+        { id: 2, src: '/perfume_with_no_bg.png', alt: 'Perfume', text: 'Perfume' },
         { id: 3, src: '/earring3.png', alt: 'Earrings', text: 'Earrings' },
-        { id: 4, src: '/brochus.jpg', alt: 'Brochures', text: 'Brochures' },
+        { id: 4, src: '/brooch_with_no_bg.png', alt: 'Brochures', text: 'Brochures' },
     ]);
 
     useEffect(() => {
@@ -33,7 +33,7 @@ const NavBarItemList = () => {
                             initial={{ opacity: 0, x: 200, y: 0 }} // Start off to the right
                             animate={{
                                 opacity: 1,
-                                x: -100,
+                                x: -200,
                                 scale: index === 1 ? 1 : 0.5, // Scale only the middle item (index 1)
                                 y: index === 1 ? 50 : index === 2 ? 0 : -150, // Handle vertical position for each index
                             }}
@@ -61,7 +61,10 @@ const NavBarItemList = () => {
                                         style={{ objectFit: 'cover' }} // Ensures the image covers the container
                                     />
                                 </div>
+                                <div style={{alignContent:'center'}}>
+                                    
                                 <p>{item.text}</p>
+                                </div>
                             </div>
                         </motion.li>
                     ))}

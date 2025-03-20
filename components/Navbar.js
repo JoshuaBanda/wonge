@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import style from '../styles/Navbar.module.css';
 import Image from 'next/image';
-import { FaSeedling } from 'react-icons/fa';
+import { FaBars, FaSeedling } from 'react-icons/fa';
 import { FaCarTunnel } from 'react-icons/fa6';
 import { FaShoppingBasket } from 'react-icons/fa';
 import NavBarItemList from '../pages/Desings/NavBarItemList';
@@ -29,6 +29,7 @@ function Navbar() {
 
   return (
     <div className={style.container}>
+    <FaBars/>
       {/* Headings */}
       <div className={style.heading}>
         {/* Name of website */}
@@ -58,7 +59,7 @@ function Navbar() {
           <Image
             src='/wonge5_with_no_bg.png' // Use the photo_url from the API
             alt='Perfume'
-            width={210} // Adjust width as needed
+            width={220} // Adjust width as needed
             height={120} // Adjust height as needed
             className={style.pic} // Red border and rounded corners applied here
           />

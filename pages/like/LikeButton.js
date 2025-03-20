@@ -108,7 +108,7 @@ const LikeButton = ({ postId, userId, jwtToken, initialLikeCount, initialLikeSta
         <span style={{ position:'absolute',
           top:"120px",
           right:'40px',
-          fontSize:'10px'
+          fontSize:'14px'
          }}>
           <Rating likeCount={likeCount}/>
         </span>
@@ -121,11 +121,11 @@ const LikeButton = ({ postId, userId, jwtToken, initialLikeCount, initialLikeSta
             background: 'none',
             border: 'none',
             cursor: isLoading ? 'not-allowed' : 'pointer',
-            color: isLiked ? 'sienna' : '#888',
+            color: isLiked ? 'white' : '#888',
             overflow:'hidden'
           }}
         >
-          <FaHeart size={18}/>
+          <FaHeart size={20}/>
         </button>
         {isLoading && (
           <ClipLoader

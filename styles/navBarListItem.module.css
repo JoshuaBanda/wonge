@@ -20,21 +20,18 @@
 }
 
 .item {
-    border: 2px solid rgba(255, 68, 0, 0.459);
     width: auto; /* Set width for item */
     text-align: center; /* Center the text inside the item */
     border-radius: 20px;
     height: 150px;
-    background-color: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(50px);
+    display: flex;
     
 }
 
 .photoContainer {
     position: relative;
-    height: 100px;
-    width: 100px;
-    border: 1px solid white;
+    height: 150px;
+    width: 150px;
     padding: 0px;
     border-radius: 50%;
     overflow: hidden;
@@ -46,4 +43,7 @@
     margin-left: 10px;
     font-size: 14px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(50px);
+    border-radius: 5px;
 }

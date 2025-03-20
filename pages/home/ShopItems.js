@@ -92,32 +92,24 @@ const ShopItems = ({ searchItem, jwtToken='1', post='', currentUserId, apiServic
         <p>No image available</p>
       )}
       
-      <div className={styles.txt}>
-        <h3 style={{ height: '20px' }}>
-          {checkNameLength(item.name) ? item.name : `${item.name.slice(0, 10)}...`}  {/* Truncate if name is too long */}
-        </h3>
-        
-        <p style={{ height: '40px' }}>
-          {checkDescriptionLength(item.description) ? item.description : `${item.description.slice(0, 25)}...`}  {/* Truncate if description is too long */}
-        </p>
-        <p>Price: ${item.price}</p>
-        
-        {/* Add Link to individual product page */}
-        <Link href={`/home/${item.id}`} >
-
-        <CutEdgeText/>
-
-        </Link>
-      </div>
-
-      <div className={styles.addToCart}>
-        <p style={{
+      <Link href={`/home/${item.id}`} >
+        <div className={styles.txt}>
+          <h3 style={{ height: '20px' }}>
+            {checkNameLength(item.name) ? item.name : `${item.name.slice(0, 10)}...`}  {/* Truncate if name is too long */}
+          </h3>
           
-          fontFamily: 'DM Sans, sans-serif',
-            fontWeight:'lighter',
-        }}>Add to cart</p>
-        <FaCartShopping style={{ position: 'relative', color: 'black', marginLeft: '5px' }} />
-      </div>
+          <p style={{ height: '40px' }}>
+            {checkDescriptionLength(item.description) ? item.description : `${item.description.slice(0, 25)}...`}  {/* Truncate if description is too long */}
+          </p>
+          <p>Price: ${item.price}</p>
+          
+          {/* Add Link to individual product page */}
+
+
+        </div>
+        
+      </Link>
+
     </div>
   ));
 
