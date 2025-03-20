@@ -24,14 +24,13 @@
     text-align: center; /* Center the text inside the item */
     border-radius: 20px;
     height: 150px;
-    display: flex;
     
 }
 
 .photoContainer {
     position: relative;
-    height: 150px;
-    width: 150px;
+    height: 80px;
+    width: 100px;
     padding: 0px;
     border-radius: 50%;
     overflow: hidden;
@@ -48,3 +47,16 @@
     padding: 10px;
     font-weight: normal;
 }
+.halfCircle {
+    position: absolute;  /* Absolute positioning to place it relative to its nearest positioned ancestor */
+    height: 150px;        /* Half of the circle height */
+    width: 130px;        /* Full width of the circle */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 50% ;  /* Round the top corners to create the half-circle shape */
+    right: 0;            /* Position it to the right edge */
+    top: 50%;            /* Optionally, vertically center it */
+    transform: translateY(-60%);  /* Adjust for exact vertical centering */
+    object-fit: cover;
+    overflow: hidden;
+}
+
