@@ -18,7 +18,11 @@ export default function LoginPage() {
   });
 
   const handleSelect = (side) => {
+    
+    console.log('side :',side)
     if (side === 'left') {
+      
+    console.log('properties left',state)
       setState({
         ...state,
         leftWidth: '80%',
@@ -32,10 +36,11 @@ export default function LoginPage() {
         selectedSide: 'left',
       });
     } else {
+      //console.log('properties right',state)
       setState({
         ...state,
-        leftWidth: '10%',
-        rightWidth: '80%',
+        leftWidth: '25%',
+        rightWidth: '75%',
         leftRadius: '20px',
         rightRadius: '20px',
         leftZIndex: 0,
@@ -129,7 +134,7 @@ export default function LoginPage() {
           >
             {state.selectedSide === 'left' || state.selectedSide === null ? (
               <motion.div
-                initial={{ opacity: 0, x: -600 }}
+                initial={{ opacity: 0, x: -40 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{
                   type: 'spring',
@@ -140,7 +145,7 @@ export default function LoginPage() {
               </motion.div>
             ) : (
               <div>
-                <p>Login</p>
+                <p style={{color:'white'}}>Login</p>
               </div>
             )}
           </motion.li>
@@ -169,8 +174,8 @@ export default function LoginPage() {
           >
             {state.selectedSide === 'right' ? (
               <motion.div
-                initial={{ opacity: 0, x: 600 }}
-                animate={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 70 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{
                   type: 'spring',
                   stiffness: 20,
@@ -180,7 +185,7 @@ export default function LoginPage() {
               </motion.div>
             ) : (
               <div>
-                <p>SignUp</p>
+                <p style={{color:'sienna'}}>SignUp</p>
               </div>
             )}
           </motion.li>

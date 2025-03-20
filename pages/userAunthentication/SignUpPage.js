@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaSeedling } from "react-icons/fa";
 import { motion } from "framer-motion";
 import axios from "axios";
 import { useRouter } from "next/router"; // Import router for navigation
@@ -77,7 +77,7 @@ const SignUpPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    console.log('submitting')
     // Validate all fields before submission
     const newErrors = {};
     steps.forEach((step) => {
@@ -129,7 +129,24 @@ const SignUpPage = () => {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", padding: "20px" }}>
-      <form onSubmit={handleSubmit} style={{ width: "100%", maxWidth: "500px", display: "flex", flexDirection: "column", gap: "20px" }}>
+    {/* Title text */}
+                <p
+                  style={{
+                    color: "sienna",
+                    fontSize: "25px",
+                    marginBottom: "10px",
+                    textAlign: "center",
+                    position: "relative", // Ensure text is clear and not blurred
+                    zIndex: 1, // Text stays on top of the container
+                  }}
+                >
+                  WONGE ENTERPRISE
+                </p>
+                <div>
+                    
+                <FaSeedling size={60} color="sienna"/>
+                </div> 
+      <form onSubmit={handleSubmit} style={{ width: "100%", maxWidth: "500px", display: "flex", flexDirection: "column", gap: "20px" ,color:'sienna'}}>
         {steps.map((step, index) => (
           <div key={step.label} style={{ display: currentStep === index ? "block" : "none" }}>
             <label>{step.label}</label>
@@ -137,7 +154,6 @@ const SignUpPage = () => {
               <select
                 value={step.value}
                 onChange={(e) => step.setValue(e.target.value)}
-                required
                 style={{ width: "100%", padding: "10px", borderRadius: "5px", border: "1px solid #ccc" }}
               >
                 <option value="male">Male</option>
@@ -155,7 +171,6 @@ const SignUpPage = () => {
                   type={step.type === "password" && !showPassword ? "password" : step.type}
                   value={step.value}
                   onChange={(e) => step.setValue(e.target.value)}
-                  required
                   placeholder={step.placeholder}
                   style={{ width: "200px", padding: "10px", borderRadius: "20px", border: "1px solid #ccc" }}
                 />
@@ -165,7 +180,7 @@ const SignUpPage = () => {
                     onClick={() => setShowPassword(!showPassword)}
                     style={{
                       position: "absolute",
-                      right: "10px",
+                      right: "-30px",
                       top: "50%",
                       background: "none",
                       border: "none",
@@ -200,11 +215,12 @@ const SignUpPage = () => {
               height: "40px",
               width: "100%",
               textAlign: "center",
-              color: "white",
+              color: "sienna",
               lineHeight: "30px",
               borderRadius: "5px",
               cursor: "pointer",
-              backgroundColor: "#007bff",
+              backgroundColor: "rgba(0,0,0,0.2)",borderRadius:'20px',
+              border:'1px solid sienna',
               border: "none",
               fontSize: "16px",
             }}
@@ -225,13 +241,14 @@ const SignUpPage = () => {
         <div style={{ display: "flex", gap: "10px", justifyContent: "center", marginTop: "10px" }}>
           {currentStep > 0 && (
             <motion.button
+            type="button"
               onClick={handlePrev}
                 style={{
                     margin:'0 auto',
                   height: '40px',
                   width: '100px', // Adjust width for the link
                   textAlign: 'center',
-                  color: 'white',
+                  color: 'sienna',
                   lineHeight: '30px', // Vertically center the text
                   borderRadius: '50px', // Optional: adds rounded corners
                   cursor: 'pointer', // Change cursor to pointer to show it’s clickable
@@ -276,12 +293,13 @@ const SignUpPage = () => {
           {currentStep < steps.length - 1 && (
             <motion.button
               onClick={handleNext}
+              type="button"
                 style={{
                     margin:'0 auto',
                   height: '40px',
                   width: '100px', // Adjust width for the link
                   textAlign: 'center',
-                  color: 'white',
+                  color: 'sienna',
                   lineHeight: '30px', // Vertically center the text
                   borderRadius: '50px', // Optional: adds rounded corners
                   cursor: 'pointer', // Change cursor to pointer to show it’s clickable

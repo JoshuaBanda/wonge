@@ -67,7 +67,7 @@ const LoginPage = () => {
             {/* Title text */}
             <p
               style={{
-                color: "white",
+                color: "wheat",
                 fontSize: "25px",
                 marginBottom: "10px",
                 textAlign: "center",
@@ -79,7 +79,7 @@ const LoginPage = () => {
             </p>
             <div>
                 
-            <FaSeedling size={60} color="rgb(245, 244, 241)"/>
+            <FaSeedling size={60} color="wheat"/>
             </div>  
 
             {/* Login Form */}
@@ -91,6 +91,7 @@ const LoginPage = () => {
                 alignItems: "center",
                 width: "100%",
                 gap: "15px", // Add space between the input fields
+                color:'wheat'
               }}
             >
               {/* Email Input */}
@@ -105,7 +106,7 @@ const LoginPage = () => {
                   width: "100%", // Make the input fields full-width
                   maxWidth: "500px", // Optional: max width for the inputs
                   marginBottom: "10px",
-                  border: "1px solid #ddd",
+                  border: "1px solid wheat",
                   borderRadius: "50px",
                   fontSize: "16px",
                 }}
@@ -123,7 +124,7 @@ const LoginPage = () => {
                   width: "100%", // Make the input fields full-width
                   maxWidth: "500px", // Optional: max width for the inputs
                   marginBottom: "20px",
-                  border: "1px solid #ddd",
+                  border: "1px solid wheat",
                   borderRadius: "50px",
                   fontSize: "16px",
                 }}
@@ -136,7 +137,7 @@ const LoginPage = () => {
                   height: '40px',
                   width: '200px', // Adjust width for the link
                   textAlign: 'center',
-                  color: 'white',
+                  color: 'wheat',
                   lineHeight: '30px', // Vertically center the text
                   borderRadius: '50px', // Optional: adds rounded corners
                   cursor: 'pointer', // Change cursor to pointer to show it’s clickable
@@ -163,7 +164,7 @@ const LoginPage = () => {
                   
                   <p
                       style={{
-                        color: "white",
+                        color: "wheat",
                         fontSize: "15px",
                         margin:'5px auto',
                         position: "relative", // Ensure text is clear and not blurred
@@ -177,7 +178,7 @@ const LoginPage = () => {
                   
                   <p
                       style={{
-                        color: "white",
+                        color: "wheat",
                         fontSize: "20px",
                         margin:'5px auto',
                         position: "relative", // Ensure text is clear and not blurred
@@ -195,7 +196,7 @@ const LoginPage = () => {
                     border-color: transparent;
                   }
                   50% {
-                    border-color: white;
+                    border-color: wheat;
                     border-width: 3px;
                   }
                   100% {

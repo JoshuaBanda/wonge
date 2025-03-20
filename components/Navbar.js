@@ -1,15 +1,23 @@
 import { useEffect, useState } from 'react';
 import style from '../styles/Navbar.module.css';
 import Image from 'next/image';
+import { FaSeedling } from 'react-icons/fa';
+import { FaCarTunnel } from 'react-icons/fa6';
+import { FaShoppingBasket } from 'react-icons/fa';
 
 function Navbar() {
   const [menuItem, setMenuItem] = useState('');
-  const navItems = ['Items', 'uploads', 'sign up'];
 
-  const handleOnClick = (e) => {
-    const selectedItem = e.target.innerText;
-    setMenuItem(selectedItem);
-    console.log(selectedItem); // Log the item immediately
+  // Array of icon components
+  const navItems = [
+    { icon: <FaSeedling />, label: 'Seedling' },
+    { icon: <FaShoppingBasket />, label: 'Basket' },
+    { icon: <FaCarTunnel />, label: 'Tunnel' },
+  ];
+
+  const handleOnClick = (label) => {
+    setMenuItem(label);
+    console.log('Selected Item:', label); // Log the selected item
   };
 
   useEffect(() => {
@@ -18,49 +26,53 @@ function Navbar() {
     }
   }, [menuItem]); // Runs whenever menuItem changes
 
-  const navMenu = navItems.map((item, index) => (
-    <li key={index} onClick={handleOnClick}>
-      <div>
-        {item}
-      </div>
-    </li>
-  ));
-
   return (
-    <>
-      <div className={style.container}>
-        {/* Headings */}
-        <div className={style.heading}>
-          {/* Name of website */}
-          <span className={style.name}>Wonge</span>
-
-          {/* Menu */}
-          <div>
-            <ul className={style.menu}>
-              {navMenu}
-            </ul>
-          </div>
+    <div className={style.container}>
+      {/* Headings */}
+      <div className={style.heading}>
+        {/* Name of website */}
+        <div className={style.name}>
+          <span>Wonge</span>
+          <span className={style.marketText}>Market</span>
         </div>
-{/*
-        <div className={style.rightCornerDecolation}></div>
-        <div className={style.rightSecCornerDecolation}></div>
-        <div className={style.flower1}></div>
-        <div className={style.flower2}></div>
-        <div className={style.flower3}></div>
-        <div className={style.flower4}></div>
-        <div>
+
+        {/* Menu */}
+        <ul className={style.menu}>
+          {navItems.map((item, index) => (
+            <li key={index} onClick={() => handleOnClick(item.label)}>
+              <div className={style.menuItem}>
+                {item.icon} {/* Render the icon */}
+                <span>{item.label}</span> {/* Render the label */}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* First Container */}
+      <div className={style.firstContainer}>
+        {/* Image */}
+        <div className={style.firstContainerImageBox}>
           <Image
-            src='/wonge6.jpg'
-            alt='wonge6'
-            width={100} // Adjust width as needed
-            height={100} // Adjust height as needed
-            quality={100}
-            className={style.navImage}
+            src='/perfume3.jpg' // Use the photo_url from the API
+            alt='Perfume'
+            width={90} // Adjust width as needed
+            height={90} // Adjust height as needed
+            className={style.pic} // Red border and rounded corners applied here
           />
         </div>
-*/}
+
+        {/* Text */}
+        <div className={style.firstContainerText}>
+          <h3>
+            Bringing the <span className={style.highlightText}>best cosmetics</span>
+          </h3>
+          <p className={style.subText}>
+            Market with us and get the best
+          </p>
+        </div>
       </div>
-    </>
+    </div>
   );
 }
 

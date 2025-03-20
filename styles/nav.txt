@@ -1,0 +1,242 @@
+.container{
+    position:fixed;
+    
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:#333;
+    display: flex;
+    z-index: 100;
+    height: 150px;
+    width: 100%;
+    
+}
+.rightCornerDecolation {
+    position:fixed;
+    top: 0;
+    right: 10%;
+    width: 55%;
+    height: 150px;
+    background-color: orange;
+    border-bottom-left-radius: 100%;
+}
+
+.rightSecCornerDecolation {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 25%;
+    height: 180px;
+    background-color: orange;
+    border-bottom-left-radius: 100%;
+}
+.navImage{
+    position: fixed;
+    top:80px;right: 10%;
+    border: 5px solid white;
+    border-radius: 50%;
+}
+.heading{
+    position: fixed;
+    top:0px;
+    margin: 0px;
+    display: flex;
+    z-index: 100;
+    padding-right: 0px;
+}
+.name{
+    height: 100px;
+    margin: 5px;
+    font-size: 20px;
+    font-weight: normal;
+    background-color: white;
+    height: 40px;
+    width: 65px;
+    padding: 5px;
+    border-radius: 20px;
+}
+
+.menu{
+    position: fixed;
+    top:0px;
+    right: 1%;
+    height: 30px;
+    display: block;
+    padding-left: 0px;
+}
+.menu li {
+    color:sienna;
+    position: relative;
+    float: left;
+    list-style: none;
+    font-size: 12px;
+    padding: 5px 7px;
+    border-radius: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px) saturate(180%) contrast(120%); /* Stronger blur and contrast */
+    -webkit-backdrop-filter: blur(15px) saturate(180%) contrast(120%); /* For Safari compatibility */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.menu li:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    color:black;
+}
+
+.menu li:active {
+    transform: scale(0.98); /* Slight shrink when clicked */
+    box-shadow: inset 0px 0px 10px 3px rgba(255, 255, 255, 0.8), 
+                inset 0px 0px 5px 2px rgba(0, 0, 0, 0.6),
+                0px 6px 15px rgba(0, 0, 0, 0.5); /* Maintain a strong shadow when clicked */
+}
+
+
+
+.flower1 {
+    position: fixed;
+    top: 50px;
+    left: 0px;
+    width: 0;
+    height: 0;
+    border-bottom: 20px solid transparent; /* Half the width of the triangle */
+    border-right: 25px solid transparent; /* Half the width of the triangle */
+    border-bottom: 50px solid orange; /* The color and size of the triangle */
+    z-index: -100;
+  }
+  
+.flower2 {
+    position: fixed;
+    top: 80px;
+    left: 0px;
+    width: 0;
+    height: 0;
+    border-top: 25px solid transparent; /* Half the width of the triangle */
+    border-right: 25px solid transparent; /* Half the width of the triangle */
+    border-bottom: 50px solid orange; /* The color and size of the triangle */
+    z-index: -100;
+  }
+  
+.flower3 {
+    position: fixed;
+    top: 100px;
+    left: 0px;
+    width: 0;
+    height: 0;
+    border-bottom: 25px solid transparent; /* Half the width of the triangle */
+    border-right: 25px solid transparent; /* Half the width of the triangle */
+    border-top: 50px solid orange; /* The color and size of the triangle */
+    z-index: -100;
+  }
+  
+.flower4 {
+    position: fixed;
+    top: 155px;
+    left: 0px;
+    width: 0;
+    height: 0;
+    border-top: 25px solid transparent; /* Half the width of the triangle */
+    border-right: 25px solid transparent; /* Half the width of the triangle */
+    border-top: 50px solid orange; /* The color and size of the triangle */
+    z-index: -100;
+  }
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  import { useEffect, useState } from 'react';
+import style from '../styles/Navbar.module.css';
+import Image from 'next/image';
+import { FaSeedling } from 'react-icons/fa';
+import { FaCarTunnel } from 'react-icons/fa6';
+import { FaShoppingBasket } from 'react-icons/fa';
+
+function Navbar() {
+  const [menuItem, setMenuItem] = useState('');
+
+  // Array of icon components
+  const navItems = [
+    { icon: <FaSeedling />, label: 'Seedling' },
+    { icon: <FaShoppingBasket />, label: 'Basket' },
+    { icon: <FaCarTunnel />, label: 'Tunnel' },
+  ];
+
+  const handleOnClick = (label) => {
+    setMenuItem(label);
+    console.log('Selected Item:', label); // Log the selected item
+  };
+
+  useEffect(() => {
+    if (menuItem) {
+      console.log('Updated menuItem:', menuItem); // Log the updated value
+    }
+  }, [menuItem]); // Runs whenever menuItem changes
+
+  return (
+    <div className={style.container}>
+      {/* Headings */}
+      <div className={style.heading}>
+        {/* Name of website */}
+        <span className={style.name}>Wonge</span>
+
+        {/* Menu */}
+        <ul className={style.menu}>
+          {navItems.map((item, index) => (
+            <li key={index} onClick={() => handleOnClick(item.label)}>
+              <div className={style.menuItem}>
+                {item.icon} {/* Render the icon */}
+                <span>{item.label}</span> {/* Render the label */}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Decoration and Image */}
+      {/*
+      <div className={style.rightCornerDecolation}></div>
+      <div className={style.rightSecCornerDecolation}></div>
+      <div className={style.flower1}></div>
+      <div className={style.flower2}></div>
+      <div className={style.flower3}></div>
+      <div className={style.flower4}></div>
+      <div>
+        <Image
+          src='/wonge6.jpg'
+          alt='wonge6'
+          width={100}
+          height={100}
+          quality={100}
+          className={style.navImage}
+        />
+      </div>
+      */}
+    </div>
+  );
+}
+
+export default Navbar;
