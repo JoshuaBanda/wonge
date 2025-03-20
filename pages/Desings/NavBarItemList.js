@@ -7,10 +7,10 @@ const NavBarItemList = () => {
     const [items, setItems] = useState([
         { id: 1, src: '/avon_with_no_bg.png', alt: 'Avon Lotion', text: 'K15,000' },
         { id: 2, src: '/perfume_with_no_bg.png', alt: 'Perfume', text: 'K15,000' },
-        { id: 3, src: '/earring3.png', alt: 'Earrings', text: 'K15,000' },
+        { id: 3, src: '/earrings_with_no_bg.png', alt: 'Earrings', text: 'K15,000' },
         { id: 4, src: '/brooch_with_no_bg.png', alt: 'Brochures', text: 'K15,000' },
         
-        { id: 5, src: '/perfume_with_no_bg.png', alt: 'Perfume', text: 'K5,000' },
+        { id: 5, src: '/soap.png', alt: 'Perfume', text: 'K5,000' },
     ]);
 
     useEffect(() => {
@@ -94,7 +94,7 @@ const NavBarItemList = () => {
             </motion.ul>
             <div className={styles.halfCircle}>
             <Image
-                src='/wonge5_with_no_bg.png'
+                src='/wonge3_with_no_bg.png'
                 alt='half'
                 layout="fill"
                 quality={80}
