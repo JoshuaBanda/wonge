@@ -11,9 +11,9 @@ function Navbar() {
 
   // Array of icon components
   const navItems = [
-    { icon: <FaSeedling />, label: 'Seedling' },
-    { icon: <FaShoppingBasket />, label: 'Basket' },
-    { icon: <FaCarTunnel />, label: 'Tunnel' },
+    { icon: <FaSeedling />, label: '' },
+    { icon: <FaShoppingBasket />, label: '' },
+    { icon: <FaCarTunnel />, label: '' },
   ];
 
   const handleOnClick = (label) => {

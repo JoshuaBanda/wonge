@@ -5,12 +5,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const NavBarItemList = () => {
     const [items, setItems] = useState([
-        { id: 1, src: '/avon_with_no_bg.png', alt: 'Avon Lotion', text: 'Avon Lotion' },
-        { id: 2, src: '/perfume_with_no_bg.png', alt: 'Perfume', text: 'Perfume' },
-        { id: 3, src: '/earring3.png', alt: 'Earrings', text: 'Earrings' },
-        { id: 4, src: '/brooch_with_no_bg.png', alt: 'Brochures', text: 'Brochures' },
+        { id: 1, src: '/avon_with_no_bg.png', alt: 'Avon Lotion', text: 'K15,000' },
+        { id: 2, src: '/perfume_with_no_bg.png', alt: 'Perfume', text: 'K15,000' },
+        { id: 3, src: '/earring3.png', alt: 'Earrings', text: 'K15,000' },
+        { id: 4, src: '/brooch_with_no_bg.png', alt: 'Brochures', text: 'K15,000' },
         
-        { id: 5, src: '/perfume_with_no_bg.png', alt: 'Perfume', text: 'Soap' },
+        { id: 5, src: '/perfume_with_no_bg.png', alt: 'Perfume', text: 'K5,000' },
     ]);
 
     useEffect(() => {

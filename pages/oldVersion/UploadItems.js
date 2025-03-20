@@ -221,7 +221,7 @@ const inputStyle = {
   border: '1px solid #ccc',
   borderRadius: '4px',
   boxSizing: 'border-box',
-  backgroundColor:"rgba(255,255,255,0.7)",
+  backgroundColor:"rgba(255,255,255,0.2)",
   color:"white",
 };
 
@@ -239,7 +239,7 @@ const radioLabelStyle = {
 };
 
 const submitButtonStyle = {
-  backgroundColor: '#4CAF50',
+  backgroundColor: 'orangered',
   color: 'white',
   padding: '10px',
   border: 'none',
