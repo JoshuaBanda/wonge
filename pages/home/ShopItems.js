@@ -79,7 +79,7 @@ const ShopItems = ({ searchItem, jwtToken='1', post='', currentUserId, apiServic
             alt={item.name}
             width={80} // Adjust width as needed
             height={80} // Adjust height as needed
-            style={{ borderRadius: "0px", marginBottom: "0px" }}
+            style={{ borderRadius: "5px", marginBottom: "0px" }}
             className={styles.pic}
           />
           <div className={styles.likeButton}>
@@ -98,10 +98,11 @@ const ShopItems = ({ searchItem, jwtToken='1', post='', currentUserId, apiServic
             {checkNameLength(item.name) ? item.name : `${item.name.slice(0, 10)}...`}  {/* Truncate if name is too long */}
           </h3>
           
-          <p style={{ height: '40px' }}>
-            {checkDescriptionLength(item.description) ? item.description : `${item.description.slice(0, 25)}...`}  {/* Truncate if description is too long */}
-          </p>
-          <p>Price: ${item.price}</p>
+          
+  {/*    <p style={{ height: '40px' }}>
+            {checkDescriptionLength(item.description) ? item.description : `${item.description.slice(0, 25)}...`}  
+            </p>*/}     
+          <p style={{marginTop:'30px'}}>Price: ${item.price}</p>
           
           {/* Add Link to individual product page */}
 

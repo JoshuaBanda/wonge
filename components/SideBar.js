@@ -1,5 +1,6 @@
+import Link from 'next/link';
 import React, { useState } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa';  // Importing both hamburger and close icons
+import { FaBars, FaHome, FaTimes } from 'react-icons/fa';  // Importing both hamburger and close icons
 import { FaBarsStaggered } from 'react-icons/fa6';
 
 const Sidebar = () => {
@@ -73,12 +74,53 @@ const Sidebar = () => {
           </div>
 
           <h3 style={{ marginBottom: '20px', color: '#fff' }}> Menu</h3>
-          <ul style={{ listStyleType: 'none', padding: '0' }}>
-            <li style={{ padding: '10px 0' }}>Home</li>
-            <li style={{ padding: '10px 0' }}>About</li>
-            <li style={{ padding: '10px 0' }}>Services</li>
-            <li style={{ padding: '10px 0' }}>Contact</li>
-          </ul>
+          
+        <div>
+
+            <nav >
+                <Link
+                    href="/home/HomePage"
+                    style={{  display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}
+                    onClick={() => {
+                    handleHomeClick();
+                    closeSidebar();
+                    }}
+                >
+                    Home
+                    <FaHome style={{ fontSize: '25px', marginLeft: 'auto' }} />
+                </Link>
+                <Link
+                    href="/Jewelry"
+                    style={{  display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}
+                    onClick={closeSidebar}
+                >
+                    Jewelry
+                </Link>
+                    <Link
+                    href="/Avon"
+                    style={{  display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}
+                    onClick={closeSidebar}
+                >
+                    Lotion
+                </Link>
+                <Link
+                    href="/Policy"
+                    style={{  display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}
+                    onClick={closeSidebar}
+                >
+                    Policies
+                </Link>
+                    
+                <Link
+                    href="/manageInventory/ManageInventory"
+                    style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}
+                    onClick={closeSidebar}
+                >
+                    Settings
+                </Link>
+                </nav>
+            </div>
+                
         </div>
       )}
     </div>

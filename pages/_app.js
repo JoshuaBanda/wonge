@@ -11,6 +11,7 @@ function MyApp({ Component, pageProps }) {
   // Correct check: only render Navbar and Footer on the correct pages
   const isLandingPage = router.pathname === '/' || router.pathname === '/LoginPage' ||router.pathname==='/userAunthentication/SignUpPage'||router.pathname==='/userAunthentication/CreateAccountPage';  // Fixed typo here
 
+  console.log('path',router.pathname)
   return (
     <>
 
@@ -31,7 +32,6 @@ function MyApp({ Component, pageProps }) {
       
 {!isLandingPage && <Sidebar />}
       {!isLandingPage && <Navbar />}
-
 
       {/* Render the page component */}
       <Component {...pageProps} />
