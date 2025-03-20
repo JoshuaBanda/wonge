@@ -152,7 +152,7 @@ export default function LoginPage() {
 
           <motion.li
             style={{
-              backgroundColor: 'wheat',
+              backgroundColor: 'rgba(255,255,255,0.9)',
               margin: '0px',
               width: state.rightWidth,
               height: '100%',

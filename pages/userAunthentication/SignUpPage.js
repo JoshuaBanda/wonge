@@ -132,7 +132,7 @@ const SignUpPage = () => {
     {/* Title text */}
                 <p
                   style={{
-                    color: "sienna",
+                    color: "orangered",
                     fontSize: "25px",
                     marginBottom: "10px",
                     textAlign: "center",
@@ -144,9 +144,9 @@ const SignUpPage = () => {
                 </p>
                 <div>
                     
-                <FaSeedling size={60} color="sienna"/>
+                <FaSeedling size={60} color="orangered"/>
                 </div> 
-      <form onSubmit={handleSubmit} style={{ width: "100%", maxWidth: "500px", display: "flex", flexDirection: "column", gap: "20px" ,color:'sienna'}}>
+      <form onSubmit={handleSubmit} style={{ width: "100%", maxWidth: "500px", display: "flex", flexDirection: "column", gap: "20px" ,color:'orangered'}}>
         {steps.map((step, index) => (
           <div key={step.label} style={{ display: currentStep === index ? "block" : "none" }}>
             <label>{step.label}</label>
@@ -215,12 +215,12 @@ const SignUpPage = () => {
               height: "40px",
               width: "100%",
               textAlign: "center",
-              color: "sienna",
+              color: "orangered",
               lineHeight: "30px",
               borderRadius: "5px",
               cursor: "pointer",
               backgroundColor: "rgba(0,0,0,0.2)",borderRadius:'20px',
-              border:'1px solid sienna',
+              border:'1px solid orangered',
               border: "none",
               fontSize: "16px",
             }}
@@ -248,7 +248,7 @@ const SignUpPage = () => {
                   height: '40px',
                   width: '100px', // Adjust width for the link
                   textAlign: 'center',
-                  color: 'sienna',
+                  color: 'orangered',
                   lineHeight: '30px', // Vertically center the text
                   borderRadius: '50px', // Optional: adds rounded corners
                   cursor: 'pointer', // Change cursor to pointer to show it’s clickable
@@ -299,7 +299,7 @@ const SignUpPage = () => {
                   height: '40px',
                   width: '100px', // Adjust width for the link
                   textAlign: 'center',
-                  color: 'sienna',
+                  color: 'orangered',
                   lineHeight: '30px', // Vertically center the text
                   borderRadius: '50px', // Optional: adds rounded corners
                   cursor: 'pointer', // Change cursor to pointer to show it’s clickable
